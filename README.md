@@ -21,11 +21,13 @@ Feel free to add more and more rules around the pattern of coding and we will ma
 
 5. One of the requirement while working with Electron application will be node and npm should be installed in your system. For development purposes, you will need npm and node for doing a lot of tasks. 
 
-If you install node, npm will be automatically installed with the package. You can install node in any way you want but I would recommend doing it from the command line. 
+   If you install node, npm will be automatically installed with the package. You can install node in any way you want but I would recommend doing it from the command line. 
 
-Installing node in macOS: If you have homebrew installed on your system, open the Terminal app and type ```brew update```. This updates Homebrew with a list of the latest version of Node. Then install node by command ```brew install node```.
+
+   Installing node in macOS: If you have homebrew installed on your system, open the Terminal app and type ```brew update```. This updates Homebrew with a list of the latest version of Node. Then install node by command ```brew install node```.
    
-If you do not have homebrew installed, Install it through below provided a link and then you can go to the above step.    https://treehouse.github.io/installation-guides/mac/homebrew 
+   
+   If you do not have homebrew installed, Install it through below provided a link and then you can go to the above step.      https://treehouse.github.io/installation-guides/mac/homebrew 
    
    
 6. After the node has installed fully, make sure you check the version of node and npm through the terminal to make sure everything is up to the mark. Commands for checking node and npm version is ```node --version``` and ```npm --version```. 
