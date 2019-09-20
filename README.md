@@ -30,6 +30,8 @@ If you do not have homebrew installed, Install it through below provided a link 
    
 6. After the node has installed fully, make sure you check the version of node and npm through the terminal to make sure everything is up to the mark. Commands for checking node and npm version is ```node --version``` and ```npm --version```. 
   
+  
 7. Now try to run the application by command ```electron```. This will open a new window which will give you confirmation of whether the electron is working or not.
+
 
 8. Now for demo purpose try to run ```electron ./main.js``` and you will see a demo application. This is just for testing purpose of whether electron application will work or not.
