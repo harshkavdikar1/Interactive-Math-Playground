@@ -1,0 +1,22 @@
+{
+  "name": "scratch-math-modal",
+  "version": "1.0.0",
+  "description": "Project repository for making scratch math modal",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SER-515-Team-17/Scratch-Math-Modal.git"
+  },
+  "author": "sarvanshprasher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SER-515-Team-17/Scratch-Math-Modal/issues"
+  },
+  "homepage": "https://github.com/SER-515-Team-17/Scratch-Math-Modal#readme",
+  "devDependencies": {
+    "electron": "^6.0.10"
+  }
+}
