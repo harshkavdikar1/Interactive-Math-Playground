@@ -49,3 +49,6 @@ Feel free to add more and more rules around the pattern of coding and we will ma
 > renderer.js — consider it as front end code. This file is used by electron to render the view.
 
 <b> For every module we will have different renderer.js file aligned with its specific html file and main.js will be a common file where we will do backend code. <b>
+
+
+<b> For running the application ,now you just have to give command ```npm start``` in command line.<b>
