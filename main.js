@@ -3,6 +3,8 @@ const url = require('url')
 const path = require('path')
 const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
+const key = crypto.randomBytes(32);
+const iv = crypto.randomBytes(16);
 
 function createWindow() {
    win = new BrowserWindow({width: 1000, height: 800})
@@ -11,7 +13,9 @@ function createWindow() {
       protocol: 'file:',
       slashes: true
    }))
+ }
 
+app.on('ready', createWindow);
 
 function encrypt(text){
 
@@ -32,44 +36,11 @@ function decrypt(text){
 
   let encryptedText = Buffer.from(text.encryptedData,'hex')
 
-  let decipher = cyrpto.createDecipheriv('aes-256-cbc', Buffer.from(key),iv);
+  let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key),iv);
+
+  let decrypted = decipher.update(encryptedText);
 
   decrypted = Buffer.concat([decrypted,decipher.final()]);
 
   return decrypted.toString();
 }
-
-var hw = encrypt("sarvanshprasher");
-console.log(hw);
-
-console.log(decrypt(hw));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.on('ready', createWindow)
