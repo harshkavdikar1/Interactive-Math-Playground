@@ -18,5 +18,8 @@
   "homepage": "https://github.com/SER-515-Team-17/Scratch-Math-Modal#readme",
   "devDependencies": {
     "electron": "^6.0.10"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
   }
 }
