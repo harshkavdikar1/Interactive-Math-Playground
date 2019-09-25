@@ -7,7 +7,7 @@ const algorithm = 'aes-256-cbc';
 function createWindow() {
    win = new BrowserWindow({width: 1000, height: 800})
    win.loadURL(url.format ({
-      pathname: path.join(__dirname, 'index.html'),
+      pathname: path.join(__dirname, 'app/index.html'),
       protocol: 'file:',
       slashes: true
    }))

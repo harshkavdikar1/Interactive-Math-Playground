@@ -4,7 +4,8 @@
   "description": "Project repository for making scratch math modal",
   "main": "main.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
