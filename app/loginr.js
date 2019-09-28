@@ -9,6 +9,8 @@ const password_txt=document.getElementById('password')
 submit_btn.addEventListener('click',function(event)
 {
 	console.log("hi rend")
+
+	//sending data to main process.
 	ipc.send('sent_credentials',email_txt.value,password_txt.value)
 
 })

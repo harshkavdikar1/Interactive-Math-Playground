@@ -2,14 +2,10 @@ const { app, BrowserWindow } = require('electron')
 const ipc=require('electron').ipcMain
 const {webContents}=require('electron')
 
-//const sqlite=require(sqlite3)
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let win 
-let user
+let user_name
 let logged=0
-let win1
 
 function createWindow () {
   // Create the browser window.
@@ -21,17 +17,14 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
-  win.loadFile('login.html')
+  // and load the login.html of the app.
+  win.loadURL('file://'+__dirname+'/app/login.html')
 
   // Open the DevTools.
   win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     win = null
   })
 }
@@ -57,29 +50,33 @@ app.on('activate', () => {
     createWindow()
   }
 })
-ipc.on('sent_credentials',function(event,arg1,arg2){
+
+//receiving data from loginr.js
+ipc.on('sent_credentials',function(event,arg1,arg2){ 
   console.log(arg1)
   console.log(arg2)
-  user=arg1
-  console.log(user)
-
+  user_name=arg1
+  console.log(user_name)
+  
+//logged will be 1 when typed credentials are correct.
+//database operations for login are to be done here.
   logged=1
-  win.loadFile('home.html')
+
+  if(logged==1)//checking whether user logged in or not.
+  {
+     win.loadURL('file://'+__dirname+'/app/home.html')// if logged==1, go to homepage(load homepage in window)
+  }
+
 })
 
+//receiving signal from home.js
 ipc.on('ping',function(event){
-    console.log('pinged')
-    if(logged===1)
-   {
+     console.log('pinged')
      console.log(logged)
-     //win.webContents.send('user_name',user)
+     
+     // sending data to home.js
+     win.webContents.send('sent_user_name',user_name)
 
-     win.webContents.send('sent_user_name',user)
-
-    }
 })
 
 
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
