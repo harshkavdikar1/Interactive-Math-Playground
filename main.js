@@ -1,3 +1,4 @@
+
 const { app, BrowserWindow } = require('electron')
 const ipc=require('electron').ipcMain
 const {webContents}=require('electron')
@@ -6,6 +7,7 @@ const {webContents}=require('electron')
 let win 
 let user_name
 let logged=0
+
 
 function createWindow () {
   // Create the browser window.
@@ -16,22 +18,19 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-
   // and load the login.html of the app.
   win.loadURL('file://'+__dirname+'/app/login.html')
-
   // Open the DevTools.
   win.webContents.openDevTools()
-
   // Emitted when the window is closed.
   win.on('closed', () => {
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+
+
+
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
@@ -78,5 +77,6 @@ ipc.on('ping',function(event){
      win.webContents.send('sent_user_name',user_name)
 
 })
+
 
 
