@@ -4,7 +4,7 @@ const ipc=require('electron').ipcMain
 const {webContents}=require('electron')
 
 
-let win 
+let win
 let user_name
 let logged=0
 
@@ -29,8 +29,6 @@ function createWindow () {
 }
 
 
-
-
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
@@ -51,12 +49,12 @@ app.on('activate', () => {
 })
 
 //receiving data from loginr.js
-ipc.on('sent_credentials',function(event,arg1,arg2){ 
+ipc.on('sent_credentials',function(event,arg1,arg2){
   console.log(arg1)
   console.log(arg2)
   user_name=arg1
   console.log(user_name)
-  
+
 //logged will be 1 when typed credentials are correct.
 //database operations for login are to be done here.
   logged=1
@@ -72,11 +70,36 @@ ipc.on('sent_credentials',function(event,arg1,arg2){
 ipc.on('ping',function(event){
      console.log('pinged')
      console.log(logged)
-     
+
      // sending data to home.js
      win.webContents.send('sent_user_name',user_name)
 
 })
 
+function encrypt(text){
+
+  let cipher = crypto.createCipheriv(algorithm,Buffer.from(key),iv);
+
+  let encrypted = cipher.update(text);
+
+  encrypted = Buffer.concat([encrypted , cipher.final()]);
+
+  return {iv: iv.toString('hex'),encryptedData:encrypted.toString('hex')};
+
+}
 
 
+function decrypt(text){
+
+  let iv = Buffer.from(text.iv, 'hex');
+
+  let encryptedText = Buffer.from(text.encryptedData,'hex')
+
+  let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key),iv);
+
+  let decrypted = decipher.update(encryptedText);
+
+  decrypted = Buffer.concat([decrypted,decipher.final()]);
+
+  return decrypted.toString();
+}
