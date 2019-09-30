@@ -81,95 +81,61 @@
     background-color: rgba(0, 0, 0, 0.1);
   }
 
-<!-------------------------------------------------------------------------!>
- .navigationBorderItem{
- display: flex;
- justify-content: center;
- align-items: center;
- }
- .navigationBorder{
+ .operatorBorder, .operandBorder{
  float:left;
  width:7%;
  height:100%;
  }
- .numberWrapper{
- display:flex;
- flex-direction: row;
- flex-flow: wrap;
- width:100px;
- align-content: center;
- background: blue;
- background:#ffffff;
- cursor: pointer;
- padding: 45px 0px;
- margin: 0px;
- }
- .operands{
- background:white;
- height: 70px;
- width: 70px;
- color: white;
- margin:5px;
- text-align: center;
- border-radius: 50%;
- vertical-align: middle;
- position: relative;
- box-shadow: inset -10px -10px 100px #000, 10px 10px 20px black, inset 0px 0px 10px black;
- border-radius: 40px;
 
+ .operandsWrapper,.operatorWrapper{
+ padding: 45px 0px;
  }
- .operator{
- background:white;
- height: 70px;
- width: 70px;
- color: white;
- margin:5px;
+
+ .operands,.operator{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background:#98FB98;
+ height: 60px;
+ width: 60px;
+ color: black;
+ margin: 0px;
  text-align: center;
- border-radius: 40px;
- vertical-align: middle;
+ vertical-align: center;
+ border-radius: 50%;
  position: relative;
- box-shadow: inset -10px -10px 100px #000, 10px 10px 20px black, inset 0px 0px 10px black;
- border-radius: 40px;
  }
- .operandText,.operatorText{
-   font-size: 40px;
+
+ #operandText,#operatorText{
+   text-align: center;
+   font-size: 30px;
    font-family: 'Open Sans';
  }
 
  .playground{
  float:right;
- width:60%;
- height:52%;
+ width:56%;
+ height:85%;
  background-size: cover;
- background-color: #c4c4c4;
+ background-color: #ADD8E6;
  position: absolute;
- left: 262px;
- top: 61px;
-
+ left: 250px;
+ top: 80px;
  }
 
- .plagroundScreen{
- height: 60%;
- position: relative;
- }
-
- .expression{
- width:100%;
- height: 70px;
- }
-
- .playgroundBox{
- height:70px;
- width:100%;
- }
  .playgroundScreenBox {
- border-bottom:1px dotted white;
- display: inline-block;
- cursor: pointer;
+  display: inline-block;
+  height: 500px;
+  width: 60px;
+  margin: 10px;
+  border: solid 3px salmon;
+  background: white;
  }
+
  .playGroundScoreWrapper{
- float: right;
+ float:right;
  width:20%;
- flex-direction: column;
- height: 100%;
+ height: 85%;
+ position:relative;
+ top:80px;
  }
