@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="home.css" type="text/css">
+</head>
+<body>
+	<div id="navigation">
+		<div class="inner">
+			<ul>
+				<li class="link logo"><a href="">
+					<span>Scratch</span></a>
+				</li>
+				<li class="link create">
+					<a href="">
+					<span>Create</span></a>
+				</li>
+				<li class="link learn">
+					<a href="">
+					<span>Learn</span></a>
+				</li>
+				<li class="link assignment">	<a href="">
+					<span>	Assignment</span></a>
+				</li>
+				<li class="link about">	<a href="">
+					<span>	About</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div>
+		<div class="operandBorder">
+			<div id="oprandWrapper" class="operandsWrapper">
+				<div id="0"  draggable="true" class="operands">
+					<span id="operandText"> 0</span>
+				</div>
+				<div id="1"  draggable="true" class="operands">
+					<span id="operandText"> 1</span>
+				</div>
+				<div id="2"  draggable="true" class="operands">
+					<span id="operandText"> 2</span>
+				</div>
+				<div id="3"  draggable="true" class="operands">
+					<span id="operandText"> 3</span>
+				</div>
+				<div id="4"  draggable="true" class="operands">
+					<span id="operandText"> 4</span>
+				</div>
+				<div id="5"  draggable="true" class="operands">
+					<span id="operandText"> 5</span>
+				</div>
+				<div id="6"  draggable="true"  class="operands">
+					<span id="operandText"> 6</span>
+				</div>
+				<div id="7"  draggable="true"  class="operands">
+					<span id="operandText"> 7</span>
+				</div>
+				<div id="8"  draggable="true" class="operands">
+					<span id="operandText"> 8</span>
+				</div>
+				<div id="9"  draggable="true" class="operands">
+					<span id="operandText"> 9</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="operatorBorder">
+			<div id="optorWrapper" class="operatorWrapper">
+				<div id="101"  draggable="true"  class="operator">
+					<span id="operatorText">+</span>
+				</div>
+				<div id="102"  draggable="true"  class="operator">
+					<span id="operatorText">-</span>
+				</div>
+				<div id="103"  draggable="true"  class="operator">
+					<span id="operatorText">*</span>
+				</div>
+				<div id="104"  draggable="true"  class="operator">
+					<span id="operatorText">/</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="pg" class="playground">
+				<div id="playground1" class="playgroundScreenBox">
+				</div>
+				<!-- <div id="playground2" class="playgroundBox playgroundScreenBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+				</div>
+				<div id="playground3" class="playgroundBox playgroundScreenBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+				</div>
+				<div id="playground4" class="playgroundBox playgroundScreenBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+				</div>
+				<div id="playground5" class="playgroundBox playgroundScreenBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+				</div> -->
+		</div>
+		<div class="playGroundScoreWrapper">
+				<button id="get_result">Print Result</button>
+				<br/><br/><br/><br/>
+				<input type="text" id="display_result" placeholder="Result wil be printed here"></input>
+		</div>
+	</div>
+</body>
+<script src="home.js"></script>
+</html>
