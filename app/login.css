@@ -10,9 +10,9 @@
     text-align: center;
     color: #333;
     margin: 0;
-    position: absolute;
-    top: 20%;
-    left: 29%;
+    position: relative;
+    top: 10%;
+    left: 0%;
 }
 .login-container form{
     padding: 10%;

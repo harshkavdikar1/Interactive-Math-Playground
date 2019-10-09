@@ -64,6 +64,7 @@ function dragDrop(event){
 		else {
 			recreateOperators();
 		}
+		displayResults()
 }
 
 function recreateOperands() {
@@ -119,9 +120,9 @@ function recreateOperators() {
     operatorWrapper.appendChild(numberDoc);
 }
 
-document.getElementById("get_result").addEventListener('click',displayResults)
+//document.getElementById("get_result").addEventListener('click',displayResults)
 
-function displayResults(event)
+function displayResults()
 {
 	var answer = ''
 	d = document.getElementById("playground1");
