@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--refercence: https://www.w3schools.com/howto/howto_css_signup_form.asp-->
+<html>
+<head>
+<title>Sign Up</title>
+<link rel="stylesheet" href="signup.css" type="text/css">
+</head>
+<body background="cal.jpg">
+  <div class="container">
+    <label for="Name"><b>Name:</b></label>
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <label for="Email"><b>Email:</b></label>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <label for="Age"><b>Age:</b></label>
+    <input type="number" name="age" placeholder="Enter Age" required max="80" min="4">
+    <label for="Password"><b>Password:</b></label>
+    <input type="password" name="pwd" placeholder="Enter Password" required>
+    <label for="Confirm Password"><b>Confirm Password:</b></label>
+    <input type="password" name="confirm_pwd" placeholder="Confirm Password">
+    <label for="Account Type"><b>Account Type:</b></label>
+    <input type="radio" name="accout_type" value="student" required>Student
+    <input type="radio" name="accout_type" value="teacher" required>Teacher <br>
+    <div class="clearfix">
+      <button type="button" name="submit" class="signupbtn">Sign Up</button>
+      <button type="button" name="cancel" class="cancelbtn">Cancel</button>
+    </div>
+  </div>
+</body>
+</html>
