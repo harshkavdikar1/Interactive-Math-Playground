@@ -2,8 +2,8 @@ const electron = require('electron')
 const math = require('mathjs')
 const ipc = electron.ipcRenderer
 
-console.log("hello")
-var para = document.getElementById('para')
+//console.log("hello")
+//var para = document.getElementById('para')
 
 //sending signal to main process to get connection
 ipc.send('ping')
@@ -11,7 +11,7 @@ ipc.send('ping')
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
 
-	para.innerHTML = arg.toLocaleString('en');
+	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
 })
 
@@ -132,5 +132,76 @@ function displayResults()
 			answer = answer.concat(item.textContent.trimLeft().trimRight())
 	    // console.log(item.textContent.trimLeft().trimRight());
 	});
-	document.getElementById("display_result").value = math.evaluate(answer);
+
+	if( validateExpressions(answer) )
+	{
+	   document.getElementById("display_result").value = math.evaluate(answer);
+  }
+
+	else
+	{
+		document.getElementById("display_result").value="invalid";
+	}
+
+}
+
+function validateExpressions(expression)
+{
+	console.log(expression);
+
+	var last_char = expression.charAt(expression.length-1);
+  var is_valid = true;
+
+
+	if(last_char=='+'||last_char=='-'||last_char=='*'||last_char=='/')
+	{
+		console.log(expression.charAt(expression.length-1));
+		return false;
+	}
+
+
+	for (index=expression.length-2;index>=0;index--)
+		{
+
+			var current_char=expression.charAt(index);
+
+				if( current_char == '-' )
+				{
+				  index--;
+					next_char=expression.charAt(index);
+
+					if(next_char!='+'&&next_char!='-'&&!(next_char>='0' && next_char<='9'))
+					{
+						console.log(expression.charAt(index));
+            is_valid=false;
+						break;
+					}
+
+					else
+					{
+						index=index+1;
+					}
+
+				}
+
+
+				else if( current_char== '+' || current_char == '*' || current_char == '/' )
+				{
+				  index--;
+				  next_char=expression.charAt(index);
+
+				  if(index+1==0||next_char=='+'||next_char=='-'||next_char=='*'||next_char=='/')
+				  {
+					  console.log(expression.charAt(index));
+					  is_valid=false;
+            break;
+					}
+
+				}
+
+        console.log(index);
+		 }
+
+		 console.log(is_valid);
+		 return is_valid;
 }
