@@ -133,3 +133,12 @@ function displayResults(event)
 	});
 	document.getElementById("display_result").value = math.evaluate(answer);
 }
+
+document.getElementById("clear").addEventListener('click',clear);
+
+function clear(event)
+{
+	d = document.getElementById("playground1");
+	d.innerHTML = "";
+	document.getElementById("display_result").value = "";
+}
