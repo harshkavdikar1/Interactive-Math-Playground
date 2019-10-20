@@ -61,7 +61,12 @@
     var data = JSON.parse(info);
 
     if(email == decrypt(data.email) && pwd == decrypt(data.pwd)){
-      win.loadURL('file://'+__dirname+'/app/home.html')
+      if decrypt(data.type) == 'teacher'{
+        win.loadURL('file://'+__dirname+'/app/teacher.html')
+      }
+      else {
+        win.loadURL('file://'+__dirname+'/app/home.html')
+      }
     }
     else {
       win.loadURL('file://'+__dirname+'/app/login.html')
