@@ -52,21 +52,20 @@
   })
 
   //receiving data from loginr.js
-  ipc.on('sent_credentials',function(event,arg1,arg2){
-    console.log(arg1)
-    console.log(arg2)
-    user_name=arg1
-    console.log(user_name)
+  ipc.on('login_credentials',function(event, email, pwd){
 
-  //logged will be 1 when typed credentials are correct.
-  //database operations for login are to be done here.
-    logged=1
+    var fs = require("fs");
 
-    if(logged==1)//checking whether user logged in or not.
-    {
-       win.loadURL('file://'+__dirname+'/app/home.html')// if logged==1, go to homepage(load homepage in window)
+    var info = fs.readFileSync("db_json/login_info.json");
+
+    var data = JSON.parse(info);
+
+    if(email == decrypt(data.email) && pwd == decrypt(data.pwd)){
+      win.loadURL('file://'+__dirname+'/app/home.html')
     }
-
+    else {
+      win.loadURL('file://'+__dirname+'/app/login.html')
+    }
   })
 
   //receiving signal from home.js
