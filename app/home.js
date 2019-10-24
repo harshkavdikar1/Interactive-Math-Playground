@@ -11,7 +11,7 @@ ipc.send('ping')
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
 
-	para.innerHTML = arg.toLocaleString('en');
+	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
 })
 
@@ -21,6 +21,7 @@ var next_operand_id = 4;
 const operands_drag = document.querySelectorAll(".operandsWrapper")
 const operator_drag = document.querySelectorAll(".operatorWrapper")
 const pg_drag = document.querySelector(".playground")
+
 
 for (const i of operands_drag){
 	i.addEventListener('dragstart', dragStart);
@@ -142,4 +143,13 @@ function clear(event)
 	d = document.getElementById("playground1");
 	d.innerHTML = "";
 	document.getElementById("display_result").value = "";
+}
+
+var history = document.getElementById('historyLink')
+history.addEventListener('click',viewHistory);
+
+function viewHistory(event)
+{
+  ipc.send('createhistory')
+	console.log("history request");
 }
