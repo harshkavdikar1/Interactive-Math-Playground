@@ -1,15 +1,16 @@
 const electron = require('electron')
+const BrowserWindow = electron.remote.BrowserWindow;
 const math = require('mathjs')
 const ipc = electron.ipcRenderer
-
-console.log("hello")
-var para = document.getElementById('para')
+let history_win
+//console.log("hello")
+//var para = document.getElementById('para')
 
 //sending signal to main process to get connection
 ipc.send('ping')
 
 //recieving data from main process
-ipc.on('sent_user_name',function(event,arg){
+ipc.once('sent_user_name',function(event,arg){
 
 	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
@@ -145,11 +146,27 @@ function clear(event)
 	document.getElementById("display_result").value = "";
 }
 
-var history = document.getElementById('historyLink')
+/*history = document.getElementById("historyLink");
+if(history){
 history.addEventListener('click',viewHistory);
+}*/
 
 function viewHistory(event)
 {
-  ipc.send('createhistory')
-	console.log("history request");
+	history_win = new BrowserWindow({
+		width: 700,
+		height: 600,
+		webPreferences: {
+			nodeIntegration: true
+		}
+	})
+	// and load the login.html of the app.
+	history_win.loadURL('file://'+__dirname+'/history.html')
+	// Open the DevTools.
+	history_win.webContents.openDevTools()
+	// Emitted when the window is closed.
+	history_win.on('closed', () => {
+		history_win = null
+	})
+	//console.log("history request");
 }

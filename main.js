@@ -8,6 +8,7 @@
   const key = crypto.scryptSync(password, 'salt', 24);
   const iv = Buffer.alloc(16, 0);
   let win
+  let history_win
   let user_name
   let logged=0
 
@@ -70,13 +71,21 @@
   })
 
   //receiving signal from home.js
-  ipc.on('ping',function(event){
+  ipc.once('ping',function(event){
        console.log('pinged')
        console.log(logged)
 
        // sending data to home.js
        win.webContents.send('sent_user_name',user_name)
 
+  })
+
+  ipc.on('createhistory',function(event){
+    console.log('history');
+    app.on('ready', createWindowHistory)
+
+       // sending data to home.js
+       //win.webContents.send('sent_user_name',user_name)
   })
 
 
