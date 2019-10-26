@@ -98,7 +98,7 @@ function recreateOperators() {
     var operatorWrapper = document.getElementById("optorWrapper");
     operatorWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
-		operands = ['+','-','*','/'];
+		operands = ['+','-','*','/','%'];
 
     for (var i = 0; i < operands.length; i++) {
         var numberDiv = document.createElement("div");
