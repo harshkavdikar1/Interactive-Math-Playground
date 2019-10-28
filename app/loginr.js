@@ -25,6 +25,7 @@ submit_btn.addEventListener('click',function(event)
 	else {
 		location.href = "home3.html";
 	}
+	location.href = "login.html"
 })
 
 function takeToSignUp(){
