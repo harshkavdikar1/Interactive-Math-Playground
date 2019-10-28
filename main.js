@@ -80,13 +80,6 @@
 
   })
 
-  ipc.on('createhistory',function(event){
-    console.log('history');
-    app.on('ready', createWindowHistory)
-
-       // sending data to home.js
-       //win.webContents.send('sent_user_name',user_name)
-  })
 
 
   ipc.on('signup_credentials',function(event,name,email,age,pwd){

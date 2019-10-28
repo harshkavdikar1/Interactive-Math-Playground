@@ -2,7 +2,10 @@ const electron = require('electron')
 const BrowserWindow = electron.remote.BrowserWindow;
 const math = require('mathjs')
 const ipc = electron.ipcRenderer
+const fs = require('fs')
+const ipcMain = electron.remote.ipcMain;
 let history_win
+var user_name
 //console.log("hello")
 //var para = document.getElementById('para')
 
@@ -11,10 +14,12 @@ ipc.send('ping')
 
 //recieving data from main process
 ipc.once('sent_user_name',function(event,arg){
-
+  user_name = arg;
 	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
 })
+
+
 
 var next_operator_id = 10;
 var next_operand_id = 4;
@@ -66,6 +71,7 @@ function dragDrop(event){
 		else {
 			recreateOperators();
 		}
+
 		displayResults()
 }
 
@@ -134,7 +140,41 @@ function displayResults()
 			answer = answer.concat(item.textContent.trimLeft().trimRight())
 	    // console.log(item.textContent.trimLeft().trimRight());
 	});
-	document.getElementById("display_result").value = math.evaluate(answer);
+	try{
+	   var result = math.evaluate(answer);
+	 }
+  catch(err){
+		result = 'invalid'
+	}
+	document.getElementById("display_result").value = result;
+
+	let data = fs.readFileSync('db_json/history_info.json');
+	let history = JSON.parse(data);
+	console.log(history);
+
+	if(history[user_name] == null)
+	{
+		console.log('no element');
+		history[user_name] = [{
+													transaction : answer,
+													result : result,
+													time :  new Date()
+												}];
+		console.log(history)
+	}
+
+	else
+	{
+		history[user_name].push({transaction : answer, result : result, time : new Date()});
+	}
+
+	fs.writeFileSync("db_json/history_info.json", JSON.stringify(history, null, 4), (err) => {
+	 if (err) {
+			console.error(err);
+			return;
+	 };
+	});
+
 }
 
 document.getElementById("clear").addEventListener('click',clear);
@@ -146,10 +186,6 @@ function clear(event)
 	document.getElementById("display_result").value = "";
 }
 
-/*history = document.getElementById("historyLink");
-if(history){
-history.addEventListener('click',viewHistory);
-}*/
 
 function viewHistory(event)
 {
@@ -170,3 +206,7 @@ function viewHistory(event)
 	})
 	//console.log("history request");
 }
+
+ipcMain.on('historyping', function(event){
+	history_win.webContents.send('sent_history_user_name',user_name)
+})
