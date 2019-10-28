@@ -61,7 +61,7 @@
     var data = JSON.parse(info);
 
     if(email == decrypt(data.email) && pwd == decrypt(data.pwd)){
-      if decrypt(data.type) == 'teacher'{
+      if (decrypt(data.type) == 'teacher'){
         win.loadURL('file://'+__dirname+'/app/teacher.html')
       }
       else {
@@ -84,13 +84,14 @@
   })
 
 
-  ipc.on('signup_credentials',function(event,name,email,age,pwd){
+  ipc.on('signup_credentials',function(event,name,email,age,pwd,type){
 
     // encrypting the data using crypto function in electron
     name = encrypt(name)
     email = encrypt(email)
     age = encrypt(age)
     pwd = encrypt(pwd)
+    type = encrypt(type)
 
     // constructing an object which will be the information of user
     var fs = require("fs");
@@ -98,11 +99,12 @@
         name: name,
         email: email,
         age:age,
-        pwd:pwd
+        pwd:pwd,
+        type:type
     };
 
     // writing it to json file
-    fs.writeFileSync("db_json/login_info.json", JSON.stringify(object, null, 4), (err) => {
+    fs.writeFileSync("db_json/login_info.json", JSON.stringify(object, null, 5), (err) => {
         if (err) {
             console.error(err);
             return;
