@@ -71,7 +71,7 @@
   })
 
   //receiving signal from home.js
-  ipc.once('ping',function(event){
+  ipc.on('ping',function(event){
        console.log('pinged')
        console.log(logged)
 

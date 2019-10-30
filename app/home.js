@@ -13,7 +13,7 @@ var user_name
 ipc.send('ping')
 
 //recieving data from main process
-ipc.once('sent_user_name',function(event,arg){
+ipc.on('sent_user_name',function(event,arg){
   user_name = arg;
 	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
