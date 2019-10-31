@@ -8,6 +8,7 @@
   const key = crypto.scryptSync(password, 'salt', 24);
   const iv = Buffer.alloc(16, 0);
   let win
+  let history_win
   let user_name
   let logged=0
 
@@ -78,6 +79,7 @@
        win.webContents.send('sent_user_name',user_name)
 
   })
+
 
 
   ipc.on('signup_credentials',function(event,name,email,age,pwd){
