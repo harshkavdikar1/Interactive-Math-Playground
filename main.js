@@ -8,6 +8,7 @@
   const key = crypto.scryptSync(password, 'salt', 24);
   const iv = Buffer.alloc(16, 0);
   let win
+  let history_win
   let user_name
   let logged=0
 

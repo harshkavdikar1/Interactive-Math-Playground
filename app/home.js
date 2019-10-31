@@ -1,19 +1,25 @@
 const electron = require('electron')
+const BrowserWindow = electron.remote.BrowserWindow;
 const math = require('mathjs')
 const ipc = electron.ipcRenderer
-
-console.log("hello")
-var para = document.getElementById('para')
+const fs = require('fs')
+const ipcMain = electron.remote.ipcMain;
+let history_win
+var user_name
+//console.log("hello")
+//var para = document.getElementById('para')
 
 //sending signal to main process to get connection
 ipc.send('ping')
 
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
-
-	para.innerHTML = arg.toLocaleString('en');
+  user_name = arg;
+	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
 })
+
+
 
 var next_operator_id = 10;
 var next_operand_id = 4;
@@ -21,6 +27,7 @@ var next_operand_id = 4;
 const operands_drag = document.querySelectorAll(".operandsWrapper")
 const operator_drag = document.querySelectorAll(".operatorWrapper")
 const pg_drag = document.querySelector(".playground")
+
 
 for (const i of operands_drag){
 	i.addEventListener('dragstart', dragStart);
@@ -64,6 +71,7 @@ function dragDrop(event){
 		else {
 			recreateOperators();
 		}
+
 		displayResults()
 }
 
@@ -98,7 +106,7 @@ function recreateOperators() {
     var operatorWrapper = document.getElementById("optorWrapper");
     operatorWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
-		operands = ['+','-','*','/'];
+		operands = ['+','-','*','/','%'];
 
     for (var i = 0; i < operands.length; i++) {
         var numberDiv = document.createElement("div");
@@ -132,7 +140,41 @@ function displayResults()
 			answer = answer.concat(item.textContent.trimLeft().trimRight())
 	    // console.log(item.textContent.trimLeft().trimRight());
 	});
-	document.getElementById("display_result").value = math.evaluate(answer);
+	try{
+	   var result = math.evaluate(answer);
+	 }
+  catch(err){
+		result = 'invalid'
+	}
+	document.getElementById("display_result").value = result;
+
+	let data = fs.readFileSync('db_json/history_info.json');
+	let history = JSON.parse(data);
+	console.log(history);
+
+	if(history[user_name] == null)
+	{
+		console.log('no element');
+		history[user_name] = [{
+													transaction : answer,
+													result : result,
+													time :  new Date()
+												}];
+		console.log(history)
+	}
+
+	else
+	{
+		history[user_name].push({transaction : answer, result : result, time : new Date()});
+	}
+
+	fs.writeFileSync("db_json/history_info.json", JSON.stringify(history, null, 4), (err) => {
+	 if (err) {
+			console.error(err);
+			return;
+	 };
+	});
+
 }
 
 document.getElementById("clear").addEventListener('click',clear);
@@ -143,3 +185,28 @@ function clear(event)
 	d.innerHTML = "";
 	document.getElementById("display_result").value = "";
 }
+
+
+function viewHistory(event)
+{
+	history_win = new BrowserWindow({
+		width: 700,
+		height: 600,
+		webPreferences: {
+			nodeIntegration: true
+		}
+	})
+	// and load the login.html of the app.
+	history_win.loadURL('file://'+__dirname+'/history.html')
+	// Open the DevTools.
+	history_win.webContents.openDevTools()
+	// Emitted when the window is closed.
+	history_win.on('closed', () => {
+		history_win = null
+	})
+	//console.log("history request");
+}
+
+ipcMain.on('historyping', function(event){
+	history_win.webContents.send('sent_history_user_name',user_name)
+})
