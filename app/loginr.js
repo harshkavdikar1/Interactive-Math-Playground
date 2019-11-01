@@ -10,11 +10,13 @@ const password = document.getElementById('password')
 submit_btn.addEventListener('click',function(event)
 {
 	//sending data to main process.
+	var login = false;
 	if (email.value != '' && password.value != ''){
 		ipc.send('login_credentials',email.value,password.value)
 	}
 	else if (name.value == '' || age.value == '') {
 		alert('Please Enter Name and Age or Email and Password to login');
+		login = true;
 	}
 	else if (age.value < 8) {
 		location.href = "home.html";
@@ -22,10 +24,12 @@ submit_btn.addEventListener('click',function(event)
 	else if (age.value < 12) {
 		location.href = "home2.html";
 	}
-	else {
+	else if (age.value > 12){
 		location.href = "home3.html";
 	}
-	location.href = "login.html"
+	if (login == true){
+		location.href = "login.html";
+	}
 })
 
 function takeToSignUp(){
