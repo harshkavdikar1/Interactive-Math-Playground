@@ -40,7 +40,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- About section -->
   <div class="container dark-grey center text-light-grey padding-32" id="about">
     <h4><b>About Me</b></h4>
-    <img src="/w3images/avatar_hat.jpg" alt="Me" class="image padding-32" width="600" height="650">
+    
     <div class="content justify" style="max-width:600px">
       <h4>Teacher Name</h4>
       <p>Some text about teacher</p>
@@ -91,18 +91,11 @@ function fopen() {
   document.getElementById("myOverlay").style.display = "block";
 }
  
-function"fClose() {
+function fClose() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
 }
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
 
 </script>
 
