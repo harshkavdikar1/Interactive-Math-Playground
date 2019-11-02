@@ -67,5 +67,103 @@
             "result": 8,
             "time": "2019-10-27T09:18:49.244Z"
         }
+    ],
+    "null": [
+        {
+            "transaction": "0",
+            "result": 0,
+            "time": "2019-11-01T06:12:28.465Z"
+        },
+        {
+            "transaction": "0\n\t\t\t\t1",
+            "result": {
+                "mathjs": "ResultSet",
+                "entries": [
+                    0,
+                    1
+                ]
+            },
+            "time": "2019-11-01T06:12:30.936Z"
+        },
+        {
+            "transaction": "1",
+            "result": 1,
+            "time": "2019-11-01T06:12:35.597Z"
+        },
+        {
+            "transaction": "12",
+            "result": 12,
+            "time": "2019-11-01T06:12:37.730Z"
+        },
+        {
+            "transaction": "12*",
+            "result": "invalid",
+            "time": "2019-11-01T06:12:40.083Z"
+        },
+        {
+            "transaction": "12*4",
+            "result": 48,
+            "time": "2019-11-01T06:12:43.346Z"
+        },
+        {
+            "transaction": "0",
+            "result": 0,
+            "time": "2019-11-01T06:14:26.583Z"
+        },
+        {
+            "transaction": "03",
+            "result": 3,
+            "time": "2019-11-01T06:14:28.481Z"
+        },
+        {
+            "transaction": "03+",
+            "result": "invalid",
+            "time": "2019-11-01T06:14:32.038Z"
+        },
+        {
+            "transaction": "03+5",
+            "result": 8,
+            "time": "2019-11-01T06:14:34.194Z"
+        },
+        {
+            "transaction": "4",
+            "result": 4,
+            "time": "2019-11-01T06:20:56.193Z"
+        },
+        {
+            "transaction": "5",
+            "result": 5,
+            "time": "2019-11-01T06:23:45.654Z"
+        },
+        {
+            "transaction": "5^",
+            "result": "invalid",
+            "time": "2019-11-01T06:23:47.129Z"
+        },
+        {
+            "transaction": "5^2",
+            "result": 25,
+            "time": "2019-11-01T06:23:49.500Z"
+        },
+        {
+            "transaction": "3",
+            "result": 3,
+            "time": "2019-11-01T06:24:01.519Z"
+        },
+        {
+            "transaction": "32",
+            "result": 32,
+            "time": "2019-11-01T06:24:03.066Z"
+        },
+        {
+            "transaction": "32^",
+            "result": "invalid",
+            "time": "2019-11-01T06:24:05.072Z"
+        },
+        {
+            "transaction": "32^6",
+            "result": 1073741824,
+            "time": "2019-11-01T06:24:07.651Z"
+        }
     ]
 }
