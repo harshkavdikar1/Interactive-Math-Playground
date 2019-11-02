@@ -55,6 +55,8 @@
   //receiving data from loginr.js
   ipc.on('login_credentials',function(event, email, pwd){
 
+    user_name = email
+
     var fs = require("fs");
 
     var info = fs.readFileSync("db_json/login_info.json");
