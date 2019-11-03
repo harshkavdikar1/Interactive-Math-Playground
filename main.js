@@ -67,10 +67,14 @@
       if (decrypt(data.type) == 'teacher'){
         win.loadURL('file://'+__dirname+'/app/teacher.html')
       }
-      else {
+      else if(decrypt(data.type) == 'student'){
         win.loadURL('file://'+__dirname+'/app/home.html')
       }
     }
+    else if(email =="admin" && pwd == "admin"){
+      win.loadURL('file://'+__dirname+'/app/admin.html')
+    }
+    
     else {
       win.loadURL('file://'+__dirname+'/app/login.html')
     }
