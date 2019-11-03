@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Admin Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.third img:hover{opacity: 1}
+</style>
+<body class="light-grey content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="sidebar bar-block white animate-left text-grey collapse top center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="padding-64 center"><b>ADMIN</b></h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="bar-item button padding hide-large">CLOSE</a>
+
+  <a href="#about" onclick="w3_close()" class="bar-item button">FUNCTIONALITIES</a>
+  <a href="#" onclick="w3_close()" class="bar-item button">REMOVE TEACHER</a>
+  <a href="#contact" onclick="w3_close()" class="bar-item button">REMOVE STUDENT</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="container top hide-large white xlarge padding-16">
+  <span class="left padding">ADMIN USERNAME</span>
+  <a href="javascript:void(0)" class="right button white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="overlay hide-large animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="main" style="margin-left:300px">
+
+  <!-- Push down content on small screens -->
+  <div class="hide-large" style="margin-top:83px"></div>
+
+ 
+
+  
+
+
+ 
+
+  <!-- About section -->
+  <div class="container dark-grey center text-light-grey padding-32" id="about">
+    <h4><b>ABOUT ADMIN</b></h4>
+
+    <div class="content justify" style="max-width:600px">
+      <h4>Admin Name</h4>
+      <p>Some text about admin.
+      </p>
+      <p>Mail: something@gmail.com</p>
+      <p>Tel: 000 000 0000</p>
+
+    <!-- Contact section -->
+  <div class="container light-grey padding-32 padding-large" id="contact">
+    <div class="content" style="max-width:600px">
+      <h4 class="center"><b>REMOVE TEACHER</b></h4>
+      <p>Enter the name of the teacher you want to delete</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="section">
+          <label>Name</label>
+          <input class="input border" type="text" name="Name" required>
+        </div>
+
+        <button type="submit" class="button block black margin-bottom">DELETE</button>
+      </form>
+    </div>
+  </div>
+  <div class="container light-grey padding-32 padding-large" id="contact">
+    <div class="content" style="max-width:600px">
+      <h4 class="center"><b>REMOVE STUDENT</b></h4>
+      <p>Enter the name of the student you want to delete</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="section">
+          <label>Name</label>
+          <input class="input border" type="text" name="Name" required>
+        </div>
+
+        <button type="submit" class="button block black margin-bottom">DELETE</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+    
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+    
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    
+    </script>
+</body>
+</html>
+   
+
+
+
+
+
+
+ 
