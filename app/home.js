@@ -6,6 +6,7 @@ const fs = require('fs')
 const ipcMain = electron.remote.ipcMain;
 let history_win
 var user_name
+let assignment_win
 //console.log("hello")
 //var para = document.getElementById('para')
 
@@ -210,3 +211,23 @@ function viewHistory(event)
 ipcMain.on('historyping', function(event){
 	history_win.webContents.send('sent_history_user_name',user_name)
 })
+
+function viewAssignment(event)
+{
+	assignment_win = new BrowserWindow({
+		width: 700,
+		height: 600,
+		webPreferences: {
+			nodeIntegration: true
+		}
+	})
+	// and load the login.html of the app.
+	assignment_win.loadURL('file://'+__dirname+'/assignment.html')
+	// Open the DevTools.
+	assignment_win.webContents.openDevTools()
+	// Emitted when the window is closed.
+	assignment_win.on('closed', () => {
+		assignment_win = null
+	})
+	//console.log("history request");
+}
