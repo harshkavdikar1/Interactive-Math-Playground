@@ -58,15 +58,22 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="content" style="max-width:600px">
       <h4 class="center"><b>ADD ASSIGNMENTS</b></h4>
       <p>You can add the assignment in the below text box</p>
-      <form action="/action_page.php" target="_blank">
+      <select>
+          <option value="1">Select grade</option>
+          <option value="grade1">grade1</option>
+          <option value="grade2">grade2</option>
+          <option value="grade3">grade3</option>
+          
+      </select>
+      
         <div class="section">
           <label>Assignment Name</label>
           <input class="input border" type="text" name="Name" required>
         </div>
   
     
-        <button type="submit" class="button block black margin-bottom">ADD to the Dashboard</button>
-      </form>
+        <button class="button block black margin-bottom">ADD to the Dashboard</button>
+      
     </div>
   </div>
   <div class="container light-grey padding-32 padding-large" id="contact">
