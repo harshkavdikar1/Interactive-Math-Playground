@@ -21,10 +21,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <nav class="sidebar bar-block white animate-left text-grey collapse top center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
   <h3 class="padding-64 center"><b>TEACHER<br>USER<br>NAME</b></h3>
   <a href="javascript:void(0)" onclick="fClose()" class="bar-item button padding hide-large">CLOSE</a>
- 
-  <a href="#about" onclick="fClose()" class="bar-item button">ABOUT TEACHER</a> 
+
+  <a href="#about" onclick="fClose()" class="bar-item button">ABOUT TEACHER</a>
   <a href="#contact" onclick="fClose()" class="bar-item button">ADD ASSIGNMENTS</a>
-   <a href="#" onclick="fClose()" class="bar-item button">REMOVE ASSIGNMENTS</a> 
+   <a href="#" onclick="fClose()" class="bar-item button">REMOVE ASSIGNMENTS</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -39,13 +39,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- !PAGE CONTENT! -->
 <div class="main" style="margin-left:300px">
 
-  <!-- Push down content on small screens --> 
+  <!-- Push down content on small screens -->
   <div class="hide-large" style="margin-top:83px"></div>
-  
+
   <!-- About section -->
   <div class="container dark-grey center text-light-grey padding-32" id="about">
     <h4><b>About Me</b></h4>
-    
+
     <div class="content justify" style="max-width:600px">
       <h4>Teacher Name</h4>
       <p>Some text about teacher</p>
@@ -58,22 +58,22 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="content" style="max-width:600px">
       <h4 class="center"><b>ADD ASSIGNMENTS</b></h4>
       <p>You can add the assignment in the below text box</p>
-      <select>
+      <select id="grade">
           <option value="1">Select grade</option>
           <option value="grade1">grade1</option>
           <option value="grade2">grade2</option>
           <option value="grade3">grade3</option>
-          
+
       </select>
-      
+
         <div class="section">
           <label>Assignment Name</label>
-          <input class="input border" type="text" name="Name" required>
+          <input id="assignment_text" class="input border" type="text" name="Name" required>
         </div>
-  
-    
-        <button class="button block black margin-bottom">ADD to the Dashboard</button>
-      
+
+
+        <button id="add_assignment" class="button block black margin-bottom">ADD to the Dashboard</button>
+
     </div>
   </div>
   <div class="container light-grey padding-32 padding-large" id="contact">
@@ -85,24 +85,24 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <label>Select Assignment </label>
           <input class="input border" type="text" name="Name" required>
         </div>
-  
-    
+
+
         <button type="submit" class="button block black margin-bottom">REMOVE from the Dashboard</button>
       </form>
     </div>
   </div>
-    
-  
+
+
 
 </div>
 
-<script>
+<script src="teacherr.js">
 // Script to open and close sidebar
 function fopen() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function fClose() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
