@@ -231,3 +231,6 @@ function viewAssignment(event)
 	})
 	//console.log("history request");
 }
+ipcMain.on('assignmentping', function(event){
+	assignment_win.webContents.send('sent_assignment_user_name',user_name)
+})
