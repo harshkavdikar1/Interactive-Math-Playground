@@ -22,9 +22,19 @@ function createTable()
         var node_row = document.createElement("TR");
 
         var node_question = document.createElement("TD");
-        var textnode_question= document.createTextNode(assignment['grade1'][i].question);
+        var textnode_question= document.createTextNode(assignment['grade1'][i].Question);
         node_question.appendChild(textnode_question);
         node_row.appendChild(node_question);
+
+        var node_contributor  = document.createElement("TD");
+        var textnode_contributor = document.createTextNode(assignment['grade1'][i].Contributor);
+        node_contributor.appendChild(textnode_contributor);
+        node_row.appendChild(node_contributor);
+
+        var node_time  = document.createElement("TD");
+        var textnode_time = document.createTextNode(assignment['grade1'][i].Time);
+        node_time.appendChild(textnode_time);
+        node_row.appendChild(node_time);
         if(node_row==null)
         {
           console.log('true')
