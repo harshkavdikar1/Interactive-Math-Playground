@@ -9,6 +9,9 @@
 	<div id="navigation">
 		<div class="inner" style="left:0px;">
 			<ul>
+				<li >
+					<span style="font-size:30px;cursor:pointer;padding: 10px 10px;color: #808080;" onclick="openNav()">&#9776;</span>
+				</li>
 				<li class="link history">	<a href="#" id="historyLink" onclick="viewHistory()">
 					<span>Welcome</span>
 				</a>
@@ -32,7 +35,7 @@
 </div>
 </div>
 <div class="mainWrapper">
-	<div class="operandBorder">
+	<div id="openOperandNav" class="sidenav">
 		<div id="oprandWrapper" class="operandsWrapper">
 			<div id="0"  draggable="true" class="operands">
 				<span id="operandText"> 0</span>
@@ -64,6 +67,7 @@
 			<div id="9"  draggable="true" class="operands">
 				<span id="operandText"> 9</span>
 			</div>
+			<a style="margin: 10px 40px;" onclick="closeOperandNav()">&times; Close</a>
 		</div>
 	</div>
 
@@ -137,8 +141,8 @@
 			</p>
 		</div>
 		<div class="answerBlock">
-				<input style="padding: 25px;margin: 15px;font-size: 20px;font-weight: bold;text-align:center;"
-				 type="text" id="display_result" placeholder="Result"></input>
+			<input style="padding: 25px;margin: 15px;font-size: 20px;font-weight: bold;text-align:center;"
+			type="text" id="display_result" placeholder="Result"></input>
 		</div>
 		<br>
 		<div class="clearBlock">
@@ -146,6 +150,13 @@
 		</div>
 
 	</div>
+</div>
+<div id="mySidenav" class="sidenav">
+	<a href="#" onclick="closeNav(),openOperandNav()">Operands</a>
+	<a href="#">Operators</a>
+	<a href="#">Trignometry</a>
+	<a href="#">Logarithmic</a>
+		<a href="javascript:void(0)" onclick="closeNav()">&times; Close</a>
 </div>
 </div>
 </body>
