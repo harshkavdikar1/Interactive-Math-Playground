@@ -164,6 +164,140 @@
             "transaction": "32^6",
             "result": 1073741824,
             "time": "2019-11-01T06:24:07.651Z"
+        },
+        {
+            "transaction": "5",
+            "result": 5,
+            "time": "2019-11-01T21:31:25.994Z"
+        },
+        {
+            "transaction": "5^",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:27.994Z"
+        },
+        {
+            "transaction": "5^2",
+            "result": 25,
+            "time": "2019-11-01T21:31:30.600Z"
+        },
+        {
+            "transaction": "5^2(",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:36.793Z"
+        },
+        {
+            "transaction": "5^2(*",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:40.100Z"
+        },
+        {
+            "transaction": "5^2(*4",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:44.596Z"
+        },
+        {
+            "transaction": "5^2(*4)",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:47.143Z"
+        },
+        {
+            "transaction": "(",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:53.056Z"
+        },
+        {
+            "transaction": "(4",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:55.235Z"
+        },
+        {
+            "transaction": "(4-",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:56.649Z"
+        },
+        {
+            "transaction": "(4-5",
+            "result": "invalid",
+            "time": "2019-11-01T21:31:58.209Z"
+        },
+        {
+            "transaction": "(4-5)",
+            "result": -1,
+            "time": "2019-11-01T21:31:59.849Z"
+        },
+        {
+            "transaction": "3",
+            "result": 3,
+            "time": "2019-11-01T21:32:07.273Z"
+        },
+        {
+            "transaction": "3-",
+            "result": "invalid",
+            "time": "2019-11-01T21:32:08.933Z"
+        },
+        {
+            "transaction": "3-(",
+            "result": "invalid",
+            "time": "2019-11-01T21:32:10.863Z"
+        },
+        {
+            "transaction": "3-(-",
+            "result": "invalid",
+            "time": "2019-11-01T21:32:12.452Z"
+        },
+        {
+            "transaction": "3-(-1",
+            "result": "invalid",
+            "time": "2019-11-01T21:32:14.124Z"
+        },
+        {
+            "transaction": "3-(-1)",
+            "result": 4,
+            "time": "2019-11-01T21:32:16.092Z"
+        },
+        {
+            "transaction": ")",
+            "result": "invalid",
+            "time": "2019-11-01T21:34:24.206Z"
+        },
+        {
+            "transaction": ")",
+            "result": "invalid",
+            "time": "2019-11-01T21:34:26.495Z"
+        },
+        {
+            "transaction": ")(",
+            "result": "invalid",
+            "time": "2019-11-01T21:34:28.228Z"
+        },
+        {
+            "transaction": "sin",
+            "time": "2019-11-01T21:35:13.417Z"
+        },
+        {
+            "transaction": "sin*",
+            "result": "invalid",
+            "time": "2019-11-01T21:35:21.320Z"
+        },
+        {
+            "transaction": "sin*3",
+            "result": "invalid",
+            "time": "2019-11-01T21:35:23.959Z"
+        },
+        {
+            "transaction": "4",
+            "result": 4,
+            "time": "2019-11-01T21:35:31.882Z"
+        },
+        {
+            "transaction": "4%",
+            "result": "invalid",
+            "time": "2019-11-01T21:35:33.618Z"
+        },
+        {
+            "transaction": "4%2",
+            "result": 0,
+            "time": "2019-11-01T21:35:35.030Z"
         }
     ]
 }
