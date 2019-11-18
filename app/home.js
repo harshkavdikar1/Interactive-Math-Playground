@@ -106,7 +106,7 @@ function recreateOperators() {
     var operatorWrapper = document.getElementById("optorWrapper");
     operatorWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
-		operators = ['+','-','*','/','%','^','(',')','pi','e','!'];
+		operators = ['+', '-', '*', '/', '%', '^', '(', ')', 'pi', 'e', '!', "sin(10)", "cos(10)", "tan(10)", "cot(10)", "csc(10)", "sec(10)", "log(10)"];
 
     for (var i = 0; i < operators.length; i++) {
         var numberDiv = document.createElement("div");
