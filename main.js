@@ -24,8 +24,6 @@
     })
     // and load the login.html of the app.
     win.loadURL('file://'+__dirname+'/app/login.html')
-    // Open the DevTools.
-    win.webContents.openDevTools()
     // Emitted when the window is closed.
     win.on('closed', () => {
       win = null
@@ -74,7 +72,7 @@
     else if(email =="admin" && pwd == "admin"){
       win.loadURL('file://'+__dirname+'/app/admin.html')
     }
-    
+
     else {
       win.loadURL('file://'+__dirname+'/app/login.html')
     }

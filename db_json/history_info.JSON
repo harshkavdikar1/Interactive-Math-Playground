@@ -299,5 +299,27 @@
             "result": 0,
             "time": "2019-11-01T21:35:35.030Z"
         }
+    ],
+    "undefined": [
+        {
+            "transaction": "0",
+            "result": 0,
+            "time": "2019-11-18T00:04:55.262Z"
+        },
+        {
+            "transaction": "02",
+            "result": 2,
+            "time": "2019-11-18T00:04:56.744Z"
+        },
+        {
+            "transaction": "02*",
+            "result": "invalid",
+            "time": "2019-11-18T00:04:58.400Z"
+        },
+        {
+            "transaction": "02*4",
+            "result": 8,
+            "time": "2019-11-18T00:05:00.852Z"
+        }
     ]
 }

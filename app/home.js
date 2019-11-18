@@ -6,11 +6,7 @@ const fs = require('fs')
 const ipcMain = electron.remote.ipcMain;
 let history_win
 var user_name
-//console.log("hello")
-//var para = document.getElementById('para')
 
-//sending signal to main process to get connection
-ipc.send('ping')
 
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
@@ -18,8 +14,6 @@ ipc.on('sent_user_name',function(event,arg){
 	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
 })
-
-
 
 var next_operator_id = 10;
 var next_operand_id = 4;
@@ -198,8 +192,6 @@ function viewHistory(event)
 	})
 	// and load the login.html of the app.
 	history_win.loadURL('file://'+__dirname+'/history.html')
-	// Open the DevTools.
-	history_win.webContents.openDevTools()
 	// Emitted when the window is closed.
 	history_win.on('closed', () => {
 		history_win = null
@@ -210,3 +202,8 @@ function viewHistory(event)
 ipcMain.on('historyping', function(event){
 	history_win.webContents.send('sent_history_user_name',user_name)
 })
+
+function logOut(event)
+{
+  location.href = "login.html";
+}
