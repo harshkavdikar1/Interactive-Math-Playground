@@ -15,8 +15,8 @@ ipc.on('sent_user_name',function(event,arg){
 	console.log('hi');
 })
 
-var next_operator_id = 10;
-var next_operand_id = 4;
+var next_operator_id = 120;
+var next_operand_id = 10;
 
 const operands_drag = document.querySelectorAll(".operandsWrapper")
 const operator_drag = document.querySelectorAll(".operatorWrapper")
@@ -78,7 +78,7 @@ function recreateOperands() {
     for (var i = 0; i < 10; i++) {
         var numberDiv = document.createElement("div");
 
-        numberDiv.setAttribute("id", next_operator_id);
+        numberDiv.setAttribute("id", next_operand_id);
         numberDiv.setAttribute("draggable", "true");
 				numberDiv.setAttribute("class", "operands");
 
@@ -90,7 +90,7 @@ function recreateOperands() {
 
         numberDoc.appendChild(numberDiv);
 
-				next_operator_id = next_operator_id + 1;
+				next_operand_id = next_operand_id + 1;
     }
     oprandWrapper.appendChild(numberDoc);
 }
@@ -100,9 +100,9 @@ function recreateOperators() {
     var operatorWrapper = document.getElementById("optorWrapper");
     operatorWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
-		operands = ['+','-','*','/','%','^','(',')'];
+		operators = ['+', '-', '*', '/', '%', '^', '(', ')', 'pi', 'e', '!', "sin(10)", "cos(10)", "tan(10)", "cot(10)", "csc(10)", "sec(10)", "log(10)"];
 
-    for (var i = 0; i < operands.length; i++) {
+    for (var i = 0; i < operators.length; i++) {
         var numberDiv = document.createElement("div");
 
         numberDiv.setAttribute("id", next_operator_id);
@@ -111,7 +111,7 @@ function recreateOperators() {
 
         var span = document.createElement("span");
         span.setAttribute("id", "operatorText");
-        span.appendChild(document.createTextNode(operands[i]));
+        span.appendChild(document.createTextNode(operators[i]));
 
         numberDiv.appendChild(span);
 
