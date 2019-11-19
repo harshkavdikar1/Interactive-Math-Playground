@@ -6,11 +6,7 @@ const fs = require('fs')
 const ipcMain = electron.remote.ipcMain;
 let history_win
 var user_name
-//console.log("hello")
-//var para = document.getElementById('para')
 
-//sending signal to main process to get connection
-ipc.send('ping')
 
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
@@ -19,10 +15,8 @@ ipc.on('sent_user_name',function(event,arg){
 	console.log('hi');
 })
 
-
-
-var next_operator_id = 10;
-var next_operand_id = 4;
+var next_operator_id = 120;
+var next_operand_id = 10;
 
 const operands_drag = document.querySelectorAll(".operandsWrapper")
 const operator_drag = document.querySelectorAll(".operatorWrapper")
@@ -84,7 +78,7 @@ function recreateOperands() {
     for (var i = 0; i < 10; i++) {
         var numberDiv = document.createElement("div");
 
-        numberDiv.setAttribute("id", next_operator_id);
+        numberDiv.setAttribute("id", next_operand_id);
         numberDiv.setAttribute("draggable", "true");
 				numberDiv.setAttribute("class", "operands");
 
@@ -96,7 +90,7 @@ function recreateOperands() {
 
         numberDoc.appendChild(numberDiv);
 
-				next_operator_id = next_operator_id + 1;
+				next_operand_id = next_operand_id + 1;
     }
     oprandWrapper.appendChild(numberDoc);
 }
@@ -106,9 +100,9 @@ function recreateOperators() {
     var operatorWrapper = document.getElementById("optorWrapper");
     operatorWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
-		operands = ['+','-','*','/','%','^'];
+		operators = ['+', '-', '*', '/', '%', '^', '(', ')', 'pi', 'e', '!', "sin(10)", "cos(10)", "tan(10)", "cot(10)", "csc(10)", "sec(10)", "log(10)"];
 
-    for (var i = 0; i < operands.length; i++) {
+    for (var i = 0; i < operators.length; i++) {
         var numberDiv = document.createElement("div");
 
         numberDiv.setAttribute("id", next_operator_id);
@@ -117,7 +111,7 @@ function recreateOperators() {
 
         var span = document.createElement("span");
         span.setAttribute("id", "operatorText");
-        span.appendChild(document.createTextNode(operands[i]));
+        span.appendChild(document.createTextNode(operators[i]));
 
         numberDiv.appendChild(span);
 
@@ -198,8 +192,6 @@ function viewHistory(event)
 	})
 	// and load the login.html of the app.
 	history_win.loadURL('file://'+__dirname+'/history.html')
-	// Open the DevTools.
-	history_win.webContents.openDevTools()
 	// Emitted when the window is closed.
 	history_win.on('closed', () => {
 		history_win = null
@@ -210,3 +202,7 @@ function viewHistory(event)
 ipcMain.on('historyping', function(event){
 	history_win.webContents.send('sent_history_user_name',user_name)
 })
+
+function logOut(event){
+  location.href = "login.html";
+}
