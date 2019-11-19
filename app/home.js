@@ -206,19 +206,3 @@ ipcMain.on('historyping', function(event){
 function logOut(event){
   location.href = "login.html";
 }
-
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function openOperandNav() {
-  document.getElementById("openOperandNav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0px";
-}
-
-function closeOperandNav() {
-  document.getElementById("openOperandNav").style.width = "0px";
-}
