@@ -106,8 +106,9 @@
   vertical-align: center;
   border-radius: 50%;
   position: relative;
-  margin: 40px 0px;
+  margin: 5px 0px;
   padding: 0px;
+  top:30px;
 }
 
 #operandText,#operatorText{
