@@ -18,14 +18,14 @@ submit_btn.addEventListener('click',function(event)
 		alert('Please Enter Name and Age or Email and Password to login');
 		login = true;
 	}
-	else if (age.value < 8) {
+	else if (age.value <= 10) {
+		location.href = "home_begginer.html";
+	}
+	else if (age.value <= 14) {
+		location.href = "home_intermediate.html";
+	}
+	else if (age.value > 14){
 		location.href = "home.html";
-	}
-	else if (age.value < 12) {
-		location.href = "home2.html";
-	}
-	else if (age.value > 12){
-		location.href = "home3.html";
 	}
 	if (login == true){
 		location.href = "login.html";
