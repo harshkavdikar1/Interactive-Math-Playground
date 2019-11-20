@@ -10,10 +10,12 @@ let assignment_win
 //console.log("hello")
 //var para = document.getElementById('para')
 
+ipc.send('ping')
 
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
   user_name = arg;
+  console.log(user_name)
 	//para.innerHTML = arg.toLocaleString('en');
 	console.log('hi');
 })
@@ -222,8 +224,6 @@ function viewAssignment(event)
 	})
 	// and load the login.html of the app.
 	assignment_win.loadURL('file://'+__dirname+'/assignment.html')
-	// Open the DevTools.
-	assignment_win.webContents.openDevTools()
 	// Emitted when the window is closed.
 	assignment_win.on('closed', () => {
 		assignment_win = null
