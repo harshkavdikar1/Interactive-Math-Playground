@@ -1,3 +1,6 @@
+// Author : Harsh Kavdikar
+// Date : 09/14/2019
+
 const electron = require('electron')
 const BrowserWindow = electron.remote.BrowserWindow;
 const math = require('mathjs')
@@ -103,9 +106,17 @@ function recreateOperands() {
 function recreateOperators() {
 
     var operatorWrapper = document.getElementById("optorWrapper");
+    if (operatorWrapper.childElementCount < 5){
+        operators = ['+', '-', '*', '/'];
+    }
+    else if (operatorWrapper.childElementCount < 9) {
+        operators = ['+', '-', '*', '/', '%', '^', '(', ')'];
+    }
+    else {
+        operators = ['+', '-', '*', '/', '%', '^', '(', ')', 'pi', 'e', '!', "sin(", "cos(", "tan(", "cot(", "csc(", "sec(", "log("];
+    }
     operatorWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
-		operators = ['+', '-', '*', '/', '%', '^', '(', ')', 'pi', 'e', '!', "sin(10)", "cos(10)", "tan(10)", "cot(10)", "csc(10)", "sec(10)", "log(10)"];
 
     for (var i = 0; i < operators.length; i++) {
         var numberDiv = document.createElement("div");
