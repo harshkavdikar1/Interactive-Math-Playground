@@ -206,11 +206,11 @@ ipcMain.on('historyping', function(event){
 	history_win.webContents.send('sent_history_user_name',user_name)
 })
 
-<<<<<<< HEAD
+
 function logOut(event){
   location.href = "login.html";
 }
-=======
+
 function viewAssignment(event)
 {
 	assignment_win = new BrowserWindow({
@@ -233,4 +233,3 @@ function viewAssignment(event)
 ipcMain.on('assignmentping', function(event){
 	assignment_win.webContents.send('sent_assignment_user_name',user_name)
 })
->>>>>>> 51751c11603a3162904066a2e109b82f81c08517
