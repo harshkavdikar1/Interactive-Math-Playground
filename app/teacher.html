@@ -47,7 +47,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h4><b>About Me</b></h4>
 
     <div class="content justify" style="max-width:600px">
-      <h4>Teacher Name</h4>
+      <h4 id="TeacherName">Teacher Name</h4>
       <p>Some text about teacher</p>
       <p>mail: example@example.com</p>
       <p>tel: 0000000000</p>
@@ -58,15 +58,22 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="content" style="max-width:600px">
       <h4 class="center"><b>ADD ASSIGNMENTS</b></h4>
       <p>You can add the assignment in the below text box</p>
-      <form action="/action_page.php" target="_blank">
+      <select id="grade">
+          <option value="1">Select grade</option>
+          <option value="grade1">grade1</option>
+          <option value="grade2">grade2</option>
+          <option value="grade3">grade3</option>
+
+      </select>
+
         <div class="section">
           <label>Assignment Name</label>
-          <input class="input border" type="text" name="Name" required>
+          <textarea id="assignment_text" class = "input border" rows='6' cols='40'></textarea>
         </div>
 
 
-        <button type="submit" class="button block black margin-bottom">ADD to the Dashboard</button>
-      </form>
+        <button id="add_assignment" class="button block black margin-bottom">ADD to the Dashboard</button>
+
     </div>
   </div>
   <div class="container light-grey padding-32 padding-large" id="contact">
@@ -89,7 +96,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 </div>
 
-<script>
+<script src="teacherr.js">
 // Script to open and close sidebar
 function fopen() {
   document.getElementById("mySidebar").style.display = "block";
