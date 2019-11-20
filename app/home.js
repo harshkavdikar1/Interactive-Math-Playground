@@ -224,8 +224,6 @@ function viewAssignment(event)
 	})
 	// and load the login.html of the app.
 	assignment_win.loadURL('file://'+__dirname+'/assignment.html')
-	// Open the DevTools.
-	assignment_win.webContents.openDevTools()
 	// Emitted when the window is closed.
 	assignment_win.on('closed', () => {
 		assignment_win = null
