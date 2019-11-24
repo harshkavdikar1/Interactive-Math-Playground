@@ -18,9 +18,9 @@ ipc.send('ping')
 //recieving data from main process
 ipc.on('sent_user_name',function(event,arg){
   user_name = arg;
-  console.log(user_name)
+  // console.log(user_name)
 	//para.innerHTML = arg.toLocaleString('en');
-	console.log('hi');
+	// console.log('hi');
 })
 
 var next_operator_id = 120;
@@ -28,22 +28,30 @@ var next_operand_id = 10;
 
 const operands_drag = document.querySelectorAll(".operandsWrapper")
 const operator_drag = document.querySelectorAll(".operatorWrapper")
-const pg_drag = document.querySelector(".playground")
+const pg_drag = document.querySelector(".playgroundScreenBox")
+const pg_ele_drag = document.querySelectorAll(".playgroundScreenBox")
+const del_drag = document.querySelector(".deleteBox")
 
 
 for (const i of operands_drag){
 	i.addEventListener('dragstart', dragStart);
 }
+
 for (const i of operator_drag){
 	i.addEventListener('dragstart', dragStart);
 }
 
-pg_drag.addEventListener('dragStart', pgDragStart);
+for (const i of pg_ele_drag){
+	i.addEventListener('dragstart', pgDragStart);
+}
+
 pg_drag.addEventListener('dragover', dragOver);
 pg_drag.addEventListener('drop', dragDrop);
+del_drag.addEventListener('dragover', delDragOver);
+del_drag.addEventListener('drop', delDragDrop);
 
 function pgDragStart(event) {
-	event.preventDefault();
+  event.dataTransfer.setData("text/plain", event.target.id);
 }
 
 function dragOver(event) {
@@ -52,6 +60,18 @@ function dragOver(event) {
 
 function dragStart(event) {
   event.dataTransfer.setData("text/plain", event.target.id);
+}
+
+function delDragOver(event) {
+	event.preventDefault();
+}
+
+function delDragDrop(event){
+  var data = event.dataTransfer.getData("text/plain");
+  var element = document.getElementById(data)
+  var playground = document.getElementById('playground1')
+  playground.removeChild(element)
+  displayResults()
 }
 
 function dragDrop(event){
@@ -160,17 +180,17 @@ function displayResults()
 
 	let data = fs.readFileSync('db_json/history_info.json');
 	let history = JSON.parse(data);
-	console.log(history);
+	// console.log(history);
 
 	if(history[user_name] == null)
 	{
-		console.log('no element');
+		// console.log('no element');
 		history[user_name] = [{
 													transaction : answer,
 													result : result,
 													time :  new Date()
 												}];
-		console.log(history)
+		// console.log(history)
 	}
 
 	else
@@ -180,7 +200,7 @@ function displayResults()
 
 	fs.writeFileSync("db_json/history_info.json", JSON.stringify(history, null, 4), (err) => {
 	 if (err) {
-			console.error(err);
+			// console.error(err);
 			return;
 	 };
 	});
