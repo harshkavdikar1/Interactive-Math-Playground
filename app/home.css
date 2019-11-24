@@ -228,3 +228,9 @@
   .sidenav {padding-top: 60px;}
   .sidenav a {font-size: 18px;}
 }
+
+.deleteBox {
+  padding: 10px;
+  background-color: green;
+  height: 100px
+}
