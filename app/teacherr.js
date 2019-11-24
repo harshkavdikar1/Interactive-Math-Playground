@@ -84,3 +84,8 @@ function addAssignment(event){
    };
   });
 }
+
+
+function logOut(event){
+  location.href = "login.html";
+}
