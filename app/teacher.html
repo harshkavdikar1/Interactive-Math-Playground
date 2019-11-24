@@ -59,12 +59,17 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
       </select>
 
-        <div class="section">
+        <div id="Assignment" class="section">
           <label>Assignment Name</label>
-          <textarea id="assignment_text" class = "input border" rows='6' cols='40'></textarea>
+          <div id="question1">
+            <textarea id="assignment_text" class = "input border" rows='6' cols='40'></textarea>
+            <input id="option1" type="text" name="fname" placeholder="option1"><br>
+            <input id="option2" type="text" name="fname" placeholder="option2"><br>
+            <input id="option3" type="text" name="fname" placeholder="option3">
+          </div>
         </div>
 
-
+        <button id="add_question" class="button block black margin-bottom">ADD Question</button>
         <button id="add_assignment" class="button block black margin-bottom">ADD to the Dashboard</button>
 
     </div>
