@@ -773,6 +773,21 @@
             "transaction": "4^5",
             "result": 1024,
             "time": "2019-11-21T15:22:56.231Z"
+        },
+        {
+            "transaction": "3",
+            "result": 3,
+            "time": "2019-11-24T22:43:17.789Z"
+        },
+        {
+            "transaction": "3*",
+            "result": "invalid",
+            "time": "2019-11-24T22:43:19.063Z"
+        },
+        {
+            "transaction": "3*3",
+            "result": 9,
+            "time": "2019-11-24T22:43:52.423Z"
         }
     ],
     "undefined": [
