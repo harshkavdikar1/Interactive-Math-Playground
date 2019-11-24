@@ -85,7 +85,8 @@
 
 .operatorBorder, .operandBorder{
   float:left;
-  width:7%;
+  width:14%;
+  margin: 25px 0px;
   height:100%;
 }
 

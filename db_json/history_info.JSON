@@ -788,6 +788,66 @@
             "transaction": "3*3",
             "result": 9,
             "time": "2019-11-24T22:43:52.423Z"
+        },
+        {
+            "transaction": "1",
+            "result": 1,
+            "time": "2019-11-24T23:52:21.942Z"
+        },
+        {
+            "transaction": "12",
+            "result": 12,
+            "time": "2019-11-24T23:52:24.346Z"
+        },
+        {
+            "transaction": "12*",
+            "result": "invalid",
+            "time": "2019-11-24T23:52:26.129Z"
+        },
+        {
+            "transaction": "12*9",
+            "result": 108,
+            "time": "2019-11-24T23:52:27.828Z"
+        },
+        {
+            "transaction": "7",
+            "result": 7,
+            "time": "2019-11-24T23:52:31.339Z"
+        },
+        {
+            "transaction": "75",
+            "result": 75,
+            "time": "2019-11-24T23:52:32.679Z"
+        },
+        {
+            "transaction": "75/",
+            "result": "invalid",
+            "time": "2019-11-24T23:52:34.943Z"
+        },
+        {
+            "transaction": "75/5",
+            "result": 15,
+            "time": "2019-11-24T23:52:36.315Z"
+        },
+        {
+            "transaction": "8",
+            "result": 8,
+            "time": "2019-11-24T23:52:59.576Z"
+        },
+        {
+            "transaction": "8",
+            "result": 8,
+            "time": "2019-11-24T23:53:22.447Z"
+        },
+        {
+            "transaction": "8+",
+            "result": "invalid",
+            "time": "2019-11-24T23:53:54.001Z"
+        },
+        {
+            "transaction": "8+7",
+            "result": 15,
+            "time": "2019-11-24T23:53:55.217Z"
         }
     ],
     "undefined": [
