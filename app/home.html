@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- Author : Harsh Kavdikar, Sarvansh Parsher-->
+<!-- Date : 09/14/2019-->
 <html>
 <head>
 	<title></title>
@@ -9,7 +11,7 @@
 	<div id="navigation">
 		<div class="inner" style="left:0px;">
 			<ul>
-				<li class="link history">	<a href="#" id="historyLink" onclick="viewHistory()">
+				<li class="link history">	<a>
 					<span>Welcome</span>
 				</a>
 			</li>
@@ -34,9 +36,6 @@
 <div class="mainWrapper">
 <div class="operandBorder">
 		<div id="oprandWrapper" class="operandsWrapper">
-			<div id="0"  draggable="true" class="operands">
-				<span id="operandText"> 0</span>
-			</div>
 			<div id="1"  draggable="true" class="operands">
 				<span id="operandText"> 1</span>
 			</div>
@@ -64,10 +63,13 @@
 			<div id="9"  draggable="true" class="operands">
 				<span id="operandText"> 9</span>
 			</div>
+			<div id="0"  draggable="true" class="operands" style="position: relative;left: 57px;">
+				<span id="operandText"> 0</span>
+			</div>
 		</div>
 	</div>
 
-		<div class="operatorBorder">
+	<div class="operatorBorder" style="position: relative; top: 300px; left: -210px; width: 18% !important;">
 			<div id="optorWrapper" class="operatorWrapper">
 				<div id="101"  draggable="true"  class="operator">
 					<span id="operatorText">+</span>
@@ -144,6 +146,12 @@
 		<br>
 		<div class="clearBlock">
 			<button class="button" id="clear">Clear</button>
+		</div>
+		<div class="deleteBox">
+			<p>
+				<img src="trash.svg" style="width: 35px;position: relative;background-color: #f0f0f0;left: 140px;top: 15px;">
+			</p>
+
 		</div>
 	</div>
 <!-- </div> -->
