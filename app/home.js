@@ -1,4 +1,4 @@
-// Author : Harsh Kavdikar
+// Author : Harsh Kavdikar, Sarvansh Parsher, Rohith Gaddam
 // Date : 09/14/2019
 
 const electron = require('electron')
