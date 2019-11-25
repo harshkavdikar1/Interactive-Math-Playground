@@ -1,3 +1,6 @@
+// Author : Rohith Gaddam, Sarvansh Parsher
+// Date : 11/11/2019
+
 const electron = require('electron');
 const ipc = electron.ipcRenderer;
 const fs = require('fs');
