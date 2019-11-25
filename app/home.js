@@ -78,6 +78,7 @@ function dragDrop(event){
 
     var data = event.dataTransfer.getData("text/plain");
     var element = document.getElementById(data);
+    element.removeAttribute("style");
 
 		var operator=true
 
