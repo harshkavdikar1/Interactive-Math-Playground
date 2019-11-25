@@ -232,6 +232,7 @@
 
 .deleteBox {
   padding: 10px;
-  background-color: green;
-  height: 100px
+  background-color: #f0f0f0;
+  height: 100px;
+  border:1px solid #c3c3c3;
 }
