@@ -103,7 +103,7 @@ function recreateOperands() {
     oprandWrapper.innerHTML = "";
     var numberDoc = document.createDocumentFragment();
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 1; i < 10; i++) {
         var numberDiv = document.createElement("div");
 
         numberDiv.setAttribute("id", next_operand_id);
@@ -120,6 +120,24 @@ function recreateOperands() {
 
 				next_operand_id = next_operand_id + 1;
     }
+
+    var numberDiv = document.createElement("div");
+
+    numberDiv.setAttribute("id", next_operand_id);
+    numberDiv.setAttribute("draggable", "true");
+    numberDiv.setAttribute("class", "operands");
+    numberDiv.setAttribute("style", "position: relative;left: 57px;");
+
+    var span = document.createElement("span");
+    span.setAttribute("id", "operandText");
+    span.appendChild(document.createTextNode(0));
+
+    numberDiv.appendChild(span);
+
+    numberDoc.appendChild(numberDiv);
+
+    next_operand_id = next_operand_id + 1;
+
     oprandWrapper.appendChild(numberDoc);
 }
 
