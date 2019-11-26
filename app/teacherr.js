@@ -1,4 +1,4 @@
-// Author: Sarvansh Parsher, Rohith Gaddam
+// Author: Sarvansh Parsher, Rohith Gaddam, Snehith Karna
 // Date: 11/12/2019
 
 const electron = require('electron')
@@ -24,6 +24,7 @@ document.getElementById("add_question").addEventListener('click',addQuestion);
 function addQuestion()
 {
   id++;
+  console.log(id)
   var division = document.createElement("div");
   division.setAttribute("id",'question'+id);
 
@@ -50,6 +51,8 @@ function addQuestion()
 
   var remove_button = document.createElement('button')
   remove_button.setAttribute("id",id)
+  remove_button.setAttribute("class","RemoveButton")
+  remove_button.setAttribute("onclick","removeQuestion('\'+id+'\')")
   var textnode = document.createTextNode("X")
   remove_button.appendChild(textnode)
 
@@ -67,19 +70,44 @@ function addQuestion()
 }
 
 function addAssignment(event){
-  var assignment = document.getElementById("assignment_text").value;
+
+  var children = assignment.childNodes;
+  console.log(children.length);
+
+  var grade = document.getElementById("grade").value;
+  var assignment_name = document.getElementById("AssignmentName").value;
 
   let data = fs.readFileSync('db_json/assignment_info.json');
   let assignment_data = JSON.parse(data);
 
-  console.log("ass");
-  var grade = document.getElementById("grade").value;
-  if(assignment != "")
+  var assignment_array = [];
+
+  for(i=0; i<children.length;i++)
   {
-    assignment_data[grade].push({Question : assignment, Contributor : user_name, Time : new Date()});
+    if(children[i].nodeName=="DIV")
+    {
+      //console.log(children[i].childNodes.length);
+      question_array={};
+      for(j=0; j<children[i].childNodes.length;j++)
+      {
+        if(children[i].childNodes[j].id=="assignment_text"){
+             console.log(children[i].childNodes[j].value);
+             question_array['question'] = children[i].childNodes[j].value;
+        }
+        else if (children[i].childNodes[j].id=="option1") {
+            question_array['option1'] = children[i].childNodes[j].value;
+        }
+        else if (children[i].childNodes[j].id=="option2") {
+            question_array['option2'] = children[i].childNodes[j].value;
+        }
+        else if (children[i].childNodes[j].id=="option3") {
+            question_array['option3'] = children[i].childNodes[j].value;
+        }
+      }
+      assignment_array.push(question_array);
+    }
   }
-
-
+  assignment_data[grade][assignment_name]=assignment_array;
   fs.writeFileSync("db_json/assignment_info.json", JSON.stringify(assignment_data, null, 4), (err) => {
    if (err) {
       console.error(err);
@@ -87,7 +115,6 @@ function addAssignment(event){
    };
   });
 }
-
 
 function logOut(event){
   location.href = "login.html";
