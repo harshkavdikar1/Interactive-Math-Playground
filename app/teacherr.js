@@ -114,6 +114,23 @@ function addAssignment(event){
       return;
    };
   });
+  var length= children.length;
+  var divelements = 0;
+  for(i=0; i<length; i++)
+  {
+    console.log(children[i].nodeName);
+    if(divelements>0)
+    {
+      assignment.removeChild(children[i]);
+    }
+    if(divelements==0){
+      if(children[i].nodeName=="DIV")
+      {
+        divelements++;
+      }
+    }
+
+  }
 }
 
 function logOut(event){
