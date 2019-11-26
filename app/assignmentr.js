@@ -24,7 +24,7 @@ function createTable()
 
       //  console.log(assignment['grade1'][i].question)
         var node_row = document.createElement("TR");
-        //node_row.setAttribute("onclick","viewAssignment()");
+        node_row.setAttribute("id","closed");
         var node_question = document.createElement("TD");
         var node_link = document.createElement("A");
         node_link.setAttribute("href","#")
@@ -43,17 +43,68 @@ function createTable()
     }
     for(var i=0; i<table.rows.length;i++)
     {
+
+
       table.rows[i].onclick = function()
       {
-        let data1 = fs.readFileSync('db_json/assignment_info.json');
-        let assignment1 = JSON.parse(data1);
+        if(this.id == "closed")
+        {
+          let data1 = fs.readFileSync('db_json/assignment_info.json');
+          let assignment1 = JSON.parse(data1);
 
-        console.log(this.rowIndex)
-        key = this.cells[0].childNodes[0].childNodes[0];
-        console.log(key.wholeText);
-        //key = key.slice(1,key.length-1)
-        console.log(assignment1['grade1'][key]);
+          console.log(this.rowIndex)
+          key = this.cells[0].childNodes[0].childNodes[0];
+          console.log(key.wholeText);
+          //key = key.slice(1,key.length-1)
+          var questions = assignment1['grade1'][key.wholeText];
+          var orderedList = document.createElement("OL");
+          for(var i=0; i<questions.length; i++)
+          {
+            var question_node = document.createElement("LI");
+            question_node.appendChild(document.createTextNode(questions[i].question));
+
+            //var listoption1 = document.createElement("LI");
+            var radio_node1 = document.createElement("INPUT");
+            radio_node1.setAttribute("type","radio");
+            radio_node1.setAttribute("name","options");
+            radio_node1.setAttribute("value","A");
+
+
+            var radio_node2 = document.createElement("INPUT");
+            radio_node2.setAttribute("type","radio");
+            radio_node2.setAttribute("name","options");
+            radio_node2.setAttribute("value","B");
+
+            var radio_node3 = document.createElement("INPUT");
+            radio_node3.setAttribute("type","radio");
+            radio_node3.setAttribute("name","options");
+            radio_node3.setAttribute("value","C");
+
+            question_node.appendChild(document.createElement("BR"));
+            question_node.appendChild(radio_node1);
+            question_node.appendChild(document.createTextNode(questions[i].option1));
+            question_node.appendChild(document.createElement("BR"));
+            question_node.appendChild(radio_node2);
+            question_node.appendChild(document.createTextNode(questions[i].option2));
+            question_node.appendChild(document.createElement("BR"));
+            question_node.appendChild(radio_node3);
+            question_node.appendChild(document.createTextNode(questions[i].option3));
+
+            orderedList.appendChild(question_node);
+          }
+          this.appendChild(orderedList);
+          this.id = "opened";
+        }
+
+        else {
+          var rowchildren = this.childNodes
+          this.removeChild(rowchildren[1]);
+          this.id = "closed";
+        }
+
       }
+
+
     }
 }
 
