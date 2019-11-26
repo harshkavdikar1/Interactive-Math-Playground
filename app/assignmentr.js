@@ -24,8 +24,8 @@ function createTable()
 
       //  console.log(assignment['grade1'][i].question)
         var node_row = document.createElement("TR");
-        node_row.setAttribute("id","closed");
         var node_question = document.createElement("TD");
+        node_question.setAttribute("id","closed");
         var node_link = document.createElement("A");
         node_link.setAttribute("href","#")
         var textnode_question= document.createTextNode(key);
@@ -45,15 +45,16 @@ function createTable()
     {
 
 
-      table.rows[i].onclick = function()
+      table.rows[i].cells[0].onclick = function()
       {
+        console.log("111");
         if(this.id == "closed")
         {
           let data1 = fs.readFileSync('db_json/assignment_info.json');
           let assignment1 = JSON.parse(data1);
 
-          console.log(this.rowIndex)
-          key = this.cells[0].childNodes[0].childNodes[0];
+          //console.log(this.rowIndex)
+          key = this.childNodes[0].childNodes[0];
           console.log(key.wholeText);
           //key = key.slice(1,key.length-1)
           var questions = assignment1['grade1'][key.wholeText];
@@ -66,18 +67,18 @@ function createTable()
             //var listoption1 = document.createElement("LI");
             var radio_node1 = document.createElement("INPUT");
             radio_node1.setAttribute("type","radio");
-            radio_node1.setAttribute("name","options");
+            radio_node1.setAttribute("name","options"+i);
             radio_node1.setAttribute("value","A");
 
 
             var radio_node2 = document.createElement("INPUT");
             radio_node2.setAttribute("type","radio");
-            radio_node2.setAttribute("name","options");
+            radio_node2.setAttribute("name","options"+i);
             radio_node2.setAttribute("value","B");
 
             var radio_node3 = document.createElement("INPUT");
             radio_node3.setAttribute("type","radio");
-            radio_node3.setAttribute("name","options");
+            radio_node3.setAttribute("name","options"+i);
             radio_node3.setAttribute("value","C");
 
             question_node.appendChild(document.createElement("BR"));
@@ -92,13 +93,13 @@ function createTable()
 
             orderedList.appendChild(question_node);
           }
-          this.appendChild(orderedList);
+          this.parentNode.appendChild(orderedList);
           this.id = "opened";
         }
 
         else {
-          var rowchildren = this.childNodes
-          this.removeChild(rowchildren[1]);
+          var rowchildren = this.parentNode.childNodes;
+          this.parentNode.removeChild(rowchildren[1]);
           this.id = "closed";
         }
 
