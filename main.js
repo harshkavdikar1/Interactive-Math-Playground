@@ -1,3 +1,5 @@
+// Author : Harsh Kavdikar, Sarvansh Parsher, Rohith Gaddam
+// Date : 09/14/2019
 
   const { app, BrowserWindow } = require('electron')
   const ipc=require('electron').ipcMain

@@ -107,7 +107,3 @@ function createTable()
 
     }
 }
-
-/*function viewAssignment(e){
-console.log(this.rowIndex+1);
-}*/

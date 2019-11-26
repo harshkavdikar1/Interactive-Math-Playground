@@ -1,3 +1,6 @@
+// Author: Harsh Kavdikar
+// Date: 09/23/2019
+
 const electron = require('electron')
 const ipc = electron.ipcRenderer
 const submit_btn = document.getElementById('submit')

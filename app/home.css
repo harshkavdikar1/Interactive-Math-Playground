@@ -1,3 +1,9 @@
+/*
+Author: Harsh Kavdikar, Sarvansh Parsher
+Date: 09/14/2019
+*/
+
+
 #navigation{
   display: block;
   position: fixed;
@@ -85,7 +91,8 @@
 
 .operatorBorder, .operandBorder{
   float:left;
-  width:7%;
+  width:14%;
+  margin: 25px 0px;
   height:100%;
 }
 
@@ -109,6 +116,7 @@
   margin: 5px 0px;
   padding: 0px;
   top:30px;
+  float: left;
 }
 
 #operandText,#operatorText{
@@ -226,4 +234,11 @@
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 60px;}
   .sidenav a {font-size: 18px;}
+}
+
+.deleteBox {
+  padding: 10px;
+  background-color: #f0f0f0;
+  height: 100px;
+  border:1px solid #c3c3c3;
 }

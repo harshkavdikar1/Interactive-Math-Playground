@@ -1,3 +1,6 @@
+// Author: Sarvansh Parsher
+// Date: 10/04/2019
+
   const electron = require('electron')
   const ipc = electron.ipcRenderer
   const BrowserWindow = electron.remote.BrowserWindow;
