@@ -15,34 +15,27 @@ function createTable()
 
     let data = fs.readFileSync('db_json/assignment_info.json');
     let assignment = JSON.parse(data);
-    for (var i = assignment['grade1'].length-1; i >= 0 ; i--)
+    for (key in assignment['grade1'])
     {
-
-        console.log(assignment['grade1'][i].question)
+        //console.log(assignment['grade1'][i].question)
         var node_row = document.createElement("TR");
-
+      //  node_row.setAttribute("onclick","viewAssignment()");
         var node_question = document.createElement("TD");
-        var textnode_question= document.createTextNode(assignment['grade1'][i].Question);
-        node_question.appendChild(textnode_question);
+        var node_link = document.createElement("A")
+        node_link.setAttribute("href","#");
+        var textnode= document.createTextNode(key);
+        node_link.appendChild(textnode);
+        node_question.appendChild(node_link);
         node_row.appendChild(node_question);
-
-        var node_contributor  = document.createElement("TD");
-        var textnode_contributor = document.createTextNode(assignment['grade1'][i].Contributor);
-        node_contributor.appendChild(textnode_contributor);
-        node_row.appendChild(node_contributor);
-
-        var node_time  = document.createElement("TD");
-        var textnode_time = document.createTextNode(assignment['grade1'][i].Time);
-        node_time.appendChild(textnode_time);
-        node_row.appendChild(node_time);
         if(node_row==null)
         {
           console.log('true')
         }
-
-
         table.appendChild(node_row);
-
-
     }
 }
+
+/*function viewAssignment(e){
+  console.log("hhh")
+  console.log(e.currentTarget.index() + 1);
+}*/

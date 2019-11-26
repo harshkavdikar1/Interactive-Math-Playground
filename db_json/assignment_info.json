@@ -1,36 +1,34 @@
 {
-    "grade1": [
-        {
-            "Question": "how are you",
-            "Contributor": "r",
-            "Time": "2019-11-18T04:16:39.044Z"
-        },
-        {
-            "Question": "how are you",
-            "Contributor": "r",
-            "Time": "2019-11-18T04:16:42.644Z"
-        },
-        {
-            "Question": "add the assignments",
-            "Contributor": "r",
-            "Time": "2019-11-20T02:22:26.913Z"
-        },
-        {
-            "Question": "add the assignments1",
-            "Contributor": "r",
-            "Time": "2019-11-20T02:22:34.261Z"
-        },
-        {
-            "Question": "What 2+3",
-            "Contributor": "r",
-            "Time": "2019-11-20T03:06:57.343Z"
-        },
-        {
-            "Question": "what is 3+4",
-            "Contributor": "r",
-            "Time": "2019-11-20T04:08:22.834Z"
-        }
-    ],
-    "grade2": [],
-    "grade3": []
+    "grade1": {
+        "assignment_name": [
+            {
+                "question": "h i",
+                "option1": "2",
+                "option2": "1",
+                "option3": "3"
+            },
+            {
+                "question": "hi f",
+                "option1": "21",
+                "option2": "2112",
+                "option3": "12"
+            }
+        ],
+        "welcome": [
+            {
+                "question": "hi as",
+                "option1": "as",
+                "option2": "sd",
+                "option3": "er"
+            },
+            {
+                "question": "hi",
+                "option1": "ds",
+                "option2": "mv",
+                "option3": "we"
+            }
+        ]
+    },
+    "grade2": {},
+    "grade3": {}
 }
