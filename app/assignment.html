@@ -1,8 +1,9 @@
+<html>
 <head>
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assignment.css" type="text/css">
-
+  <link rel="stylesheet" href="assignment.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -21,6 +22,11 @@
 
 </body>
 
-<script src="assignmentr.js">  </script>
+<script src="assignmentr.js">
+	$(document).on("click", "tr", function(e) {
+	    console.log($(e.currentTarget).index() + 1);
+	});
+ </script>
+
 
 </html>
