@@ -66,7 +66,15 @@
         win.loadURL('file://'+__dirname+'/app/teacher.html')
       }
       else if(decrypt(data.type) == 'student'){
-        win.loadURL('file://'+__dirname+'/app/home.html')
+        if (decrypt(data.age) <= 10){
+          win.loadURL('file://'+__dirname+'/app/home_begginer.html')
+        }
+        else if (decrypt(data.age) <= 14){
+          win.loadURL('file://'+__dirname+'/app/home_intermediate.html')
+        }
+        else {
+          win.loadURL('file://'+__dirname+'/app/home.html')
+        }
       }
     }
     else if(email =="admin" && pwd == "admin"){

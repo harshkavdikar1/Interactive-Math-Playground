@@ -112,11 +112,7 @@ function addAssignment(event){
    };
   });
 }
-//document.getElementsByClassName("RemoveButton").addEventListener('click',removeQuestion(this.id))
 
-function removeQuestion(event,remove_id)
-{
-  console.log(this.id)
-  var question_node = document.getElementById('question'+this.id);
-  assignment.removeChild(question_node);
+function logOut(event){
+  location.href = "login.html";
 }
