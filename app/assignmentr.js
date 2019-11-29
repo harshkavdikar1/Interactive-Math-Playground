@@ -27,9 +27,9 @@ function createTable()
         var node_question = document.createElement("TD");
         node_question.setAttribute("id","closed");
         var node_link = document.createElement("A");
-        node_link.setAttribute("href","#")
+        node_link.setAttribute("href","#");
         var textnode_question= document.createTextNode(key);
-        node_link.appendChild(textnode_question)
+        node_link.appendChild(textnode_question);
         node_question.appendChild(node_link);
         node_row.appendChild(node_question);
 
@@ -44,7 +44,7 @@ function createTable()
     for(var i=0; i<table.rows.length;i++)
     {
 
-
+      //Function for dispalying questions******************************
       table.rows[i].cells[0].onclick = function()
       {
         console.log("111");
@@ -52,19 +52,18 @@ function createTable()
         {
           let data1 = fs.readFileSync('db_json/assignment_info.json');
           let assignment1 = JSON.parse(data1);
-
           //console.log(this.rowIndex)
           key = this.childNodes[0].childNodes[0];
           console.log(key.wholeText);
           //key = key.slice(1,key.length-1)
           var questions = assignment1['grade1'][key.wholeText];
           var orderedList = document.createElement("OL");
+
           for(var i=0; i<questions.length; i++)
           {
             var question_node = document.createElement("LI");
             question_node.appendChild(document.createTextNode(questions[i].question));
 
-            //var listoption1 = document.createElement("LI");
             var radio_node1 = document.createElement("INPUT");
             radio_node1.setAttribute("type","radio");
             radio_node1.setAttribute("name","options"+i);
@@ -90,11 +89,44 @@ function createTable()
             question_node.appendChild(document.createElement("BR"));
             question_node.appendChild(radio_node3);
             question_node.appendChild(document.createTextNode(questions[i].option3));
-
             orderedList.appendChild(question_node);
           }
-          this.parentNode.appendChild(orderedList);
+
           this.id = "opened";
+          submit_btn = document.createElement("button");
+          btn_text = document.createTextNode("Submit");
+          submit_btn.appendChild(btn_text);
+          orderedList.appendChild(submit_btn);
+          this.parentNode.appendChild(orderedList);
+          var col_children = this.parentNode.childNodes[1].childNodes;
+
+          //function for submitting***************************
+          col_children[col_children.length-1].onclick = function()
+          {
+            console.log(this.parentNode);
+            var question_list = this.parentNode;
+            var row = question_list.parentNode;
+            var assignment_name = row.cells[0].childNodes[0].childNodes[0].wholeText;
+            var data = fs.readFileSync('db_json/assignment_info.json');
+            var assignment = JSON.parse(data);
+            var count = 0;
+            for(var k=0; k<assignment['grade1'][assignment_name].length; k++)
+            {
+              var options = document.getElementsByName('options'+k);
+              var answer
+              for(i = 0; i < options.length; i++)
+              {
+                if(options[i].checked)
+                  answer = options[i].value;
+              }
+              if(answer == assignment['grade1'][assignment_name][k].answer)
+                  count = count+1;
+              console.log("question"+(k+1)+" your answer:"+answer);
+              console.log("correct answer:"+assignment['grade1'][assignment_name][k].answer);
+            }
+            alert("your score is:"+count);
+          }
+          //function submitting answers ends here*********************
         }
 
         else {
@@ -104,6 +136,7 @@ function createTable()
         }
 
       }
+      //dispalying questionn function ends here***************************************
 
 
     }

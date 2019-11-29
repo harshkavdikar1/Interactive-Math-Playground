@@ -57,6 +57,10 @@ function addQuestion()
   remove_button.appendChild(textnode)
 
   var linebreak = document.createElement("br")
+  var answer = document.createElement("input");
+  answer.setAttribute("type","text");
+  answer.setAttribute("placeholder","answer option");
+  answer.setAttribute("id","answer");
 
   division.appendChild(textbox);
   division.appendChild(option1);
@@ -64,6 +68,8 @@ function addQuestion()
   division.appendChild(option2);
   division.appendChild(document.createElement("br"));
   division.appendChild(option3);
+  division.appendChild(document.createElement("br"));
+  division.appendChild(answer);
   division.appendChild(remove_button);
   assignment.appendChild(linebreak);
   assignment.appendChild(division);
@@ -102,6 +108,9 @@ function addAssignment(event){
         }
         else if (children[i].childNodes[j].id=="option3") {
             question_array['option3'] = children[i].childNodes[j].value;
+        }
+        else if(children[i].childNodes[j].id=="answer"){
+            question_array['answer'] = children[i].childNodes[j].value;
         }
       }
       assignment_array.push(question_array);
