@@ -19,6 +19,9 @@ function createTable()
 
     let data = fs.readFileSync('db_json/assignment_info.json');
     let assignment = JSON.parse(data);
+    var grades = fs.readFileSync('db_json/grades_info.json');
+    grades = JSON.parse(grades);
+
     for (var key in assignment['grade1'])
     {
 
@@ -31,6 +34,12 @@ function createTable()
         var textnode_question= document.createTextNode(key);
         node_link.appendChild(textnode_question);
         node_question.appendChild(node_link);
+        if(grades[user_name][key]!=null)
+        {
+          var score_text = document.createTextNode("score:"+grades[user_name][key]);
+          node_question.append(document.createElement("BR"));
+          node_question.appendChild(score_text);
+        }
         node_row.appendChild(node_question);
 
         if(node_row==null)
@@ -109,7 +118,7 @@ function createTable()
             var assignment_name = row.cells[0].childNodes[0].childNodes[0].wholeText;
             var data = fs.readFileSync('db_json/assignment_info.json');
             var assignment = JSON.parse(data);
-            var count = 0;
+            var score = 0;
             for(var k=0; k<assignment['grade1'][assignment_name].length; k++)
             {
               var options = document.getElementsByName('options'+k);
@@ -120,11 +129,32 @@ function createTable()
                   answer = options[i].value;
               }
               if(answer == assignment['grade1'][assignment_name][k].answer)
-                  count = count+1;
+                  score = score+1;
               console.log("question"+(k+1)+" your answer:"+answer);
               console.log("correct answer:"+assignment['grade1'][assignment_name][k].answer);
             }
-            alert("your score is:"+count);
+            alert("your score is:"+score);
+            var grades = fs.readFileSync('db_json/grades_info.json');
+            grades = JSON.parse(grades);
+            if(grades[user_name] == null)
+            {
+              grades[user_name] = {}
+              grades[user_name][assignment_name]=score;
+              row.cells[0].appendChild(document.createElement("BR"));
+              row.cells[0].appendChild(document.createTextNode("score:"+score));
+            }
+            else if(grades[user_name][assignment_name]==null)
+            {
+              grades[user_name][assignment_name]=score;
+              row.cells[0].appendChild(document.createElement("BR"));
+              row.cells[0].appendChild(document.createTextNode("score:"+score));
+            }
+            fs.writeFileSync("db_json/grades_info.json", JSON.stringify(grades, null, 4), (err) => {
+             if (err) {
+                console.error(err);
+                return;
+             };
+            });
           }
           //function submitting answers ends here*********************
         }
