@@ -2,20 +2,46 @@
  Date : 11/11/2019 */
 <style>
 
- table {
-  font-family: arial, sans-serif;
+ body{
+   color: #ADD8E6;
+ }
+
+ body table {
+  font-family: arial verdana, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  z-index: 20;
  }
 
- td, th {
-  border: 1px solid #dddddd;
+ body td, th {
   text-align: left;
-  padding: 8px;
+  padding: 10px;
  }
 
- tr:nth-child(even) {
-  background-color: #dddddd;
+ body tr:nth-child(odd){
+   background-color: #EEE8AA;
+ }
+
+ body tr:nth-child(even) {
+  background-color: #F5DEB3;
+ }
+ body td:hover{
+   background-color: green;
+ }
+
+ body tr ol{
+   font-weight: bold;
+   border: 2px solid #4CAF50;
+   background-color: ghostwhite;
+
+ }
+ body tr ol button{
+   border-radius: 4px;
+   background-color: white;
+   color: black;
+   border: 2px solid #4CAF50;
+   font-size: 15px;
+   cursor: pointer;
  }
 
 </style>

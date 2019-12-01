@@ -1,5 +1,70 @@
 {
-    "grade1": {},
+    "grade1": {
+        "assignment1": [
+            {
+                "question": "2+3",
+                "option1": "4",
+                "option2": "5",
+                "option3": "6",
+                "answer": "B"
+            },
+            {
+                "question": "4-1",
+                "option1": "4",
+                "option2": "3",
+                "option3": "1",
+                "answer": "b"
+            }
+        ],
+        "assignment2": [
+            {
+                "question": "4*5/10",
+                "option1": "4",
+                "option2": "2",
+                "option3": "10",
+                "answer": "b"
+            },
+            {
+                "question": "4/4*4",
+                "option1": "4",
+                "option2": "16",
+                "option3": "1",
+                "answer": "a"
+            }
+        ],
+        "assignment3": [
+            {
+                "question": "4+4",
+                "option1": "4",
+                "option2": "8",
+                "option3": "12",
+                "answer": "b"
+            },
+            {
+                "question": "6-4",
+                "option1": "8",
+                "option2": "2",
+                "option3": "5",
+                "answer": "b"
+            }
+        ],
+        "assignment4": [
+            {
+                "question": "4*5-6",
+                "option1": "20",
+                "option2": "14",
+                "option3": "5",
+                "answer": "b"
+            },
+            {
+                "question": "7/7*1",
+                "option1": "7",
+                "option2": "11",
+                "option3": "1",
+                "answer": "c"
+            }
+        ]
+    },
     "grade2": {},
     "grade3": {}
 }
