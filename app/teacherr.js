@@ -71,6 +71,11 @@ function addQuestion()
   division.appendChild(document.createElement("br"));
   division.appendChild(answer);
   division.appendChild(remove_button);
+  division.childNodes[8].onclick = function()
+  {
+    this.parentNode.parentNode.removeChild(this.parentNode.previousSibling);
+    this.parentNode.parentNode.removeChild(this.parentNode);
+  }
   assignment.appendChild(linebreak);
   assignment.appendChild(division);
 }
@@ -140,6 +145,7 @@ function addAssignment(event){
     }
 
   }
+  alert("assignment sucessfully added");
 }
 
 function logOut(event){

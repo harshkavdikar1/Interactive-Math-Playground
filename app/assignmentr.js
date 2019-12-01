@@ -121,6 +121,7 @@ function createTable()
             var data = fs.readFileSync('db_json/assignment_info.json');
             var assignment = JSON.parse(data);
             var score = 0;
+            var result_string="";
             for(var k=0; k<assignment['grade1'][assignment_name].length; k++)
             {
               var options = document.getElementsByName('options'+k);
@@ -132,10 +133,10 @@ function createTable()
               }
               if(answer.toLowerCase() == assignment['grade1'][assignment_name][k].answer.toLowerCase())
                   score = score+1;
-              console.log("question"+(k+1)+" your answer:"+answer);
-              console.log("correct answer:"+assignment['grade1'][assignment_name][k].answer);
+              result_string = result_string + "\nquestion"+(k+1)+" your answer:"+answer.toLowerCase();
+              result_string = result_string + "\ncorrect answer:"+assignment['grade1'][assignment_name][k].answer.toLowerCase();
             }
-            alert("your score is:"+score);
+            alert("your score is:"+score+result_string);
             var grades = fs.readFileSync('db_json/grades_info.json');
             grades = JSON.parse(grades);
             if(grades[user_name] == null)
