@@ -34,11 +34,13 @@ function createTable()
         var textnode_question= document.createTextNode(key);
         node_link.appendChild(textnode_question);
         node_question.appendChild(node_link);
-        if(grades[user_name][key]!=null)
+        if(grades[user_name]!=null)
         {
-          var score_text = document.createTextNode("score:"+grades[user_name][key]);
-          node_question.append(document.createElement("BR"));
-          node_question.appendChild(score_text);
+          if(grades[user_name][key]!=null){
+            var score_text = document.createTextNode("score:"+grades[user_name][key]);
+            node_question.append(document.createElement("BR"));
+            node_question.appendChild(score_text);
+          }
         }
         node_row.appendChild(node_question);
 
@@ -128,7 +130,7 @@ function createTable()
                 if(options[i].checked)
                   answer = options[i].value;
               }
-              if(answer == assignment['grade1'][assignment_name][k].answer)
+              if(answer.toLowerCase() == assignment['grade1'][assignment_name][k].answer.toLowerCase())
                   score = score+1;
               console.log("question"+(k+1)+" your answer:"+answer);
               console.log("correct answer:"+assignment['grade1'][assignment_name][k].answer);
